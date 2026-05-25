@@ -82,6 +82,12 @@ extern EjectRequestDefaultTypeInternal _EjectRequest_default_instance_;
 class EjectResponse;
 struct EjectResponseDefaultTypeInternal;
 extern EjectResponseDefaultTypeInternal _EjectResponse_default_instance_;
+class GetDataKartuRequest;
+struct GetDataKartuRequestDefaultTypeInternal;
+extern GetDataKartuRequestDefaultTypeInternal _GetDataKartuRequest_default_instance_;
+class GetDataKartuResponse;
+struct GetDataKartuResponseDefaultTypeInternal;
+extern GetDataKartuResponseDefaultTypeInternal _GetDataKartuResponse_default_instance_;
 class InitRequest;
 struct InitRequestDefaultTypeInternal;
 extern InitRequestDefaultTypeInternal _InitRequest_default_instance_;
@@ -268,7 +274,7 @@ class WaitInputReadCardResponse final :
                &_WaitInputReadCardResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(WaitInputReadCardResponse& a, WaitInputReadCardResponse& b) {
     a.Swap(&b);
@@ -497,7 +503,7 @@ class WaitInputReadCardRequest final :
                &_WaitInputReadCardRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(WaitInputReadCardRequest& a, WaitInputReadCardRequest& b) {
     a.Swap(&b);
@@ -672,7 +678,7 @@ class RetrieveResponse final :
                &_RetrieveResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(RetrieveResponse& a, RetrieveResponse& b) {
     a.Swap(&b);
@@ -846,7 +852,7 @@ class RetrieveRequest final :
                &_RetrieveRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(RetrieveRequest& a, RetrieveRequest& b) {
     a.Swap(&b);
@@ -983,7 +989,7 @@ class RejectCardOrMoveBinResponse final :
                &_RejectCardOrMoveBinResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(RejectCardOrMoveBinResponse& a, RejectCardOrMoveBinResponse& b) {
     a.Swap(&b);
@@ -1158,7 +1164,7 @@ class RejectCardOrMoveBinRequest final :
                &_RejectCardOrMoveBinRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(RejectCardOrMoveBinRequest& a, RejectCardOrMoveBinRequest& b) {
     a.Swap(&b);
@@ -1333,7 +1339,7 @@ class ReadDataResponse final :
                &_ReadDataResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(ReadDataResponse& a, ReadDataResponse& b) {
     a.Swap(&b);
@@ -1549,7 +1555,7 @@ class ReadDataRequest final :
                &_ReadDataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(ReadDataRequest& a, ReadDataRequest& b) {
     a.Swap(&b);
@@ -1686,7 +1692,7 @@ class ProhibitCardInResponse final :
                &_ProhibitCardInResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(ProhibitCardInResponse& a, ProhibitCardInResponse& b) {
     a.Swap(&b);
@@ -1860,7 +1866,7 @@ class ProhibitCardInRequest final :
                &_ProhibitCardInRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(ProhibitCardInRequest& a, ProhibitCardInRequest& b) {
     a.Swap(&b);
@@ -1997,7 +2003,7 @@ class PermitMagCardOnlyResponse final :
                &_PermitMagCardOnlyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(PermitMagCardOnlyResponse& a, PermitMagCardOnlyResponse& b) {
     a.Swap(&b);
@@ -2171,7 +2177,7 @@ class PermitMagCardOnlyRequest final :
                &_PermitMagCardOnlyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(PermitMagCardOnlyRequest& a, PermitMagCardOnlyRequest& b) {
     a.Swap(&b);
@@ -2308,7 +2314,7 @@ class OpenResp final :
                &_OpenResp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(OpenResp& a, OpenResp& b) {
     a.Swap(&b);
@@ -2483,7 +2489,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -2664,7 +2670,7 @@ class LEDOFFResponse final :
                &_LEDOFFResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(LEDOFFResponse& a, LEDOFFResponse& b) {
     a.Swap(&b);
@@ -2838,7 +2844,7 @@ class LEDOFFRequest final :
                &_LEDOFFRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(LEDOFFRequest& a, LEDOFFRequest& b) {
     a.Swap(&b);
@@ -2975,7 +2981,7 @@ class LEDBlinkRedResponse final :
                &_LEDBlinkRedResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(LEDBlinkRedResponse& a, LEDBlinkRedResponse& b) {
     a.Swap(&b);
@@ -3149,7 +3155,7 @@ class LEDBlinkRedRequest final :
                &_LEDBlinkRedRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(LEDBlinkRedRequest& a, LEDBlinkRedRequest& b) {
     a.Swap(&b);
@@ -3286,7 +3292,7 @@ class LEDBlinkOrangeResponse final :
                &_LEDBlinkOrangeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(LEDBlinkOrangeResponse& a, LEDBlinkOrangeResponse& b) {
     a.Swap(&b);
@@ -3460,7 +3466,7 @@ class LEDBlinkOrangeRequest final :
                &_LEDBlinkOrangeRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(LEDBlinkOrangeRequest& a, LEDBlinkOrangeRequest& b) {
     a.Swap(&b);
@@ -3597,7 +3603,7 @@ class LEDBlinkGreenResponse final :
                &_LEDBlinkGreenResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(LEDBlinkGreenResponse& a, LEDBlinkGreenResponse& b) {
     a.Swap(&b);
@@ -3771,7 +3777,7 @@ class LEDBlinkGreenRequest final :
                &_LEDBlinkGreenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(LEDBlinkGreenRequest& a, LEDBlinkGreenRequest& b) {
     a.Swap(&b);
@@ -3908,7 +3914,7 @@ class IsOpenResp final :
                &_IsOpenResp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(IsOpenResp& a, IsOpenResp& b) {
     a.Swap(&b);
@@ -4082,7 +4088,7 @@ class IsOpenRequest final :
                &_IsOpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(IsOpenRequest& a, IsOpenRequest& b) {
     a.Swap(&b);
@@ -4219,7 +4225,7 @@ class InitResponse final :
                &_InitResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(InitResponse& a, InitResponse& b) {
     a.Swap(&b);
@@ -4394,7 +4400,7 @@ class InitRequest final :
                &_InitRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(InitRequest& a, InitRequest& b) {
     a.Swap(&b);
@@ -4510,6 +4516,464 @@ class InitRequest final :
   friend struct ::TableStruct_card_2eproto;
 };// -------------------------------------------------------------------
 
+class GetDataKartuResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:card_reader_crt.GetDataKartuResponse) */ {
+ public:
+  inline GetDataKartuResponse() : GetDataKartuResponse(nullptr) {}
+  ~GetDataKartuResponse() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR GetDataKartuResponse(::google::protobuf::internal::ConstantInitialized);
+
+  inline GetDataKartuResponse(const GetDataKartuResponse& from)
+      : GetDataKartuResponse(nullptr, from) {}
+  GetDataKartuResponse(GetDataKartuResponse&& from) noexcept
+    : GetDataKartuResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetDataKartuResponse& operator=(const GetDataKartuResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetDataKartuResponse& operator=(GetDataKartuResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetDataKartuResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetDataKartuResponse* internal_default_instance() {
+    return reinterpret_cast<const GetDataKartuResponse*>(
+               &_GetDataKartuResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(GetDataKartuResponse& a, GetDataKartuResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetDataKartuResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetDataKartuResponse* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetDataKartuResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GetDataKartuResponse>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GetDataKartuResponse& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const GetDataKartuResponse& from) {
+    GetDataKartuResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(GetDataKartuResponse* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "card_reader_crt.GetDataKartuResponse";
+  }
+  protected:
+  explicit GetDataKartuResponse(::google::protobuf::Arena* arena);
+  GetDataKartuResponse(::google::protobuf::Arena* arena, const GetDataKartuResponse& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCardnumberFieldNumber = 1,
+    kTrack2DataFieldNumber = 2,
+    kModecardFieldNumber = 3,
+    kTag5F34FieldNumber = 4,
+    kIccdataFieldNumber = 5,
+    kStatusFieldNumber = 6,
+  };
+  // string cardnumber = 1;
+  void clear_cardnumber() ;
+  const std::string& cardnumber() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_cardnumber(Arg_&& arg, Args_... args);
+  std::string* mutable_cardnumber();
+  PROTOBUF_NODISCARD std::string* release_cardnumber();
+  void set_allocated_cardnumber(std::string* value);
+
+  private:
+  const std::string& _internal_cardnumber() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_cardnumber(
+      const std::string& value);
+  std::string* _internal_mutable_cardnumber();
+
+  public:
+  // string track2data = 2;
+  void clear_track2data() ;
+  const std::string& track2data() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_track2data(Arg_&& arg, Args_... args);
+  std::string* mutable_track2data();
+  PROTOBUF_NODISCARD std::string* release_track2data();
+  void set_allocated_track2data(std::string* value);
+
+  private:
+  const std::string& _internal_track2data() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_track2data(
+      const std::string& value);
+  std::string* _internal_mutable_track2data();
+
+  public:
+  // string modecard = 3;
+  void clear_modecard() ;
+  const std::string& modecard() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_modecard(Arg_&& arg, Args_... args);
+  std::string* mutable_modecard();
+  PROTOBUF_NODISCARD std::string* release_modecard();
+  void set_allocated_modecard(std::string* value);
+
+  private:
+  const std::string& _internal_modecard() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_modecard(
+      const std::string& value);
+  std::string* _internal_mutable_modecard();
+
+  public:
+  // string tag5F34 = 4;
+  void clear_tag5f34() ;
+  const std::string& tag5f34() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_tag5f34(Arg_&& arg, Args_... args);
+  std::string* mutable_tag5f34();
+  PROTOBUF_NODISCARD std::string* release_tag5f34();
+  void set_allocated_tag5f34(std::string* value);
+
+  private:
+  const std::string& _internal_tag5f34() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_tag5f34(
+      const std::string& value);
+  std::string* _internal_mutable_tag5f34();
+
+  public:
+  // string iccdata = 5;
+  void clear_iccdata() ;
+  const std::string& iccdata() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_iccdata(Arg_&& arg, Args_... args);
+  std::string* mutable_iccdata();
+  PROTOBUF_NODISCARD std::string* release_iccdata();
+  void set_allocated_iccdata(std::string* value);
+
+  private:
+  const std::string& _internal_iccdata() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_iccdata(
+      const std::string& value);
+  std::string* _internal_mutable_iccdata();
+
+  public:
+  // bool status = 6;
+  void clear_status() ;
+  bool status() const;
+  void set_status(bool value);
+
+  private:
+  bool _internal_status() const;
+  void _internal_set_status(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:card_reader_crt.GetDataKartuResponse)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 6, 0,
+      87, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr cardnumber_;
+    ::google::protobuf::internal::ArenaStringPtr track2data_;
+    ::google::protobuf::internal::ArenaStringPtr modecard_;
+    ::google::protobuf::internal::ArenaStringPtr tag5f34_;
+    ::google::protobuf::internal::ArenaStringPtr iccdata_;
+    bool status_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_card_2eproto;
+};// -------------------------------------------------------------------
+
+class GetDataKartuRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:card_reader_crt.GetDataKartuRequest) */ {
+ public:
+  inline GetDataKartuRequest() : GetDataKartuRequest(nullptr) {}
+  ~GetDataKartuRequest() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR GetDataKartuRequest(::google::protobuf::internal::ConstantInitialized);
+
+  inline GetDataKartuRequest(const GetDataKartuRequest& from)
+      : GetDataKartuRequest(nullptr, from) {}
+  GetDataKartuRequest(GetDataKartuRequest&& from) noexcept
+    : GetDataKartuRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetDataKartuRequest& operator=(const GetDataKartuRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetDataKartuRequest& operator=(GetDataKartuRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetDataKartuRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetDataKartuRequest* internal_default_instance() {
+    return reinterpret_cast<const GetDataKartuRequest*>(
+               &_GetDataKartuRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(GetDataKartuRequest& a, GetDataKartuRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GetDataKartuRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetDataKartuRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetDataKartuRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GetDataKartuRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GetDataKartuRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const GetDataKartuRequest& from) {
+    GetDataKartuRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(GetDataKartuRequest* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "card_reader_crt.GetDataKartuRequest";
+  }
+  protected:
+  explicit GetDataKartuRequest(::google::protobuf::Arena* arena);
+  GetDataKartuRequest(::google::protobuf::Arena* arena, const GetDataKartuRequest& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFormaticcdataFieldNumber = 2,
+    kAmmountFieldNumber = 1,
+  };
+  // string formaticcdata = 2;
+  void clear_formaticcdata() ;
+  const std::string& formaticcdata() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_formaticcdata(Arg_&& arg, Args_... args);
+  std::string* mutable_formaticcdata();
+  PROTOBUF_NODISCARD std::string* release_formaticcdata();
+  void set_allocated_formaticcdata(std::string* value);
+
+  private:
+  const std::string& _internal_formaticcdata() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_formaticcdata(
+      const std::string& value);
+  std::string* _internal_mutable_formaticcdata();
+
+  public:
+  // int32 ammount = 1;
+  void clear_ammount() ;
+  ::int32_t ammount() const;
+  void set_ammount(::int32_t value);
+
+  private:
+  ::int32_t _internal_ammount() const;
+  void _internal_set_ammount(::int32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:card_reader_crt.GetDataKartuRequest)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 0,
+      57, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::ArenaStringPtr formaticcdata_;
+    ::int32_t ammount_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_card_2eproto;
+};// -------------------------------------------------------------------
+
 class EjectResponse final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:card_reader_crt.EjectResponse) */ {
  public:
@@ -4569,7 +5033,7 @@ class EjectResponse final :
                &_EjectResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    2;
 
   friend void swap(EjectResponse& a, EjectResponse& b) {
     a.Swap(&b);
@@ -4743,7 +5207,7 @@ class EjectRequest final :
                &_EjectRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    3;
 
   friend void swap(EjectRequest& a, EjectRequest& b) {
     a.Swap(&b);
@@ -4879,7 +5343,7 @@ class CloseResp final :
                &_CloseResp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(CloseResp& a, CloseResp& b) {
     a.Swap(&b);
@@ -5015,7 +5479,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -5152,7 +5616,7 @@ class CardStatusResponse final :
                &_CardStatusResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(CardStatusResponse& a, CardStatusResponse& b) {
     a.Swap(&b);
@@ -5326,7 +5790,7 @@ class CardStatusRequest final :
                &_CardStatusRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(CardStatusRequest& a, CardStatusRequest& b) {
     a.Swap(&b);
@@ -5463,7 +5927,7 @@ class CaptureResponse final :
                &_CaptureResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(CaptureResponse& a, CaptureResponse& b) {
     a.Swap(&b);
@@ -5637,7 +6101,7 @@ class CaptureRequest final :
                &_CaptureRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(CaptureRequest& a, CaptureRequest& b) {
     a.Swap(&b);
@@ -5727,6 +6191,378 @@ class CaptureRequest final :
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// GetDataKartuResponse
+
+// string cardnumber = 1;
+inline void GetDataKartuResponse::clear_cardnumber() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.cardnumber_.ClearToEmpty();
+}
+inline const std::string& GetDataKartuResponse::cardnumber() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:card_reader_crt.GetDataKartuResponse.cardnumber)
+  return _internal_cardnumber();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void GetDataKartuResponse::set_cardnumber(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.cardnumber_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:card_reader_crt.GetDataKartuResponse.cardnumber)
+}
+inline std::string* GetDataKartuResponse::mutable_cardnumber() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_cardnumber();
+  // @@protoc_insertion_point(field_mutable:card_reader_crt.GetDataKartuResponse.cardnumber)
+  return _s;
+}
+inline const std::string& GetDataKartuResponse::_internal_cardnumber() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.cardnumber_.Get();
+}
+inline void GetDataKartuResponse::_internal_set_cardnumber(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.cardnumber_.Set(value, GetArena());
+}
+inline std::string* GetDataKartuResponse::_internal_mutable_cardnumber() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.cardnumber_.Mutable( GetArena());
+}
+inline std::string* GetDataKartuResponse::release_cardnumber() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:card_reader_crt.GetDataKartuResponse.cardnumber)
+  return _impl_.cardnumber_.Release();
+}
+inline void GetDataKartuResponse::set_allocated_cardnumber(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.cardnumber_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.cardnumber_.IsDefault()) {
+          _impl_.cardnumber_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:card_reader_crt.GetDataKartuResponse.cardnumber)
+}
+
+// string track2data = 2;
+inline void GetDataKartuResponse::clear_track2data() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.track2data_.ClearToEmpty();
+}
+inline const std::string& GetDataKartuResponse::track2data() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:card_reader_crt.GetDataKartuResponse.track2data)
+  return _internal_track2data();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void GetDataKartuResponse::set_track2data(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.track2data_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:card_reader_crt.GetDataKartuResponse.track2data)
+}
+inline std::string* GetDataKartuResponse::mutable_track2data() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_track2data();
+  // @@protoc_insertion_point(field_mutable:card_reader_crt.GetDataKartuResponse.track2data)
+  return _s;
+}
+inline const std::string& GetDataKartuResponse::_internal_track2data() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.track2data_.Get();
+}
+inline void GetDataKartuResponse::_internal_set_track2data(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.track2data_.Set(value, GetArena());
+}
+inline std::string* GetDataKartuResponse::_internal_mutable_track2data() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.track2data_.Mutable( GetArena());
+}
+inline std::string* GetDataKartuResponse::release_track2data() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:card_reader_crt.GetDataKartuResponse.track2data)
+  return _impl_.track2data_.Release();
+}
+inline void GetDataKartuResponse::set_allocated_track2data(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.track2data_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.track2data_.IsDefault()) {
+          _impl_.track2data_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:card_reader_crt.GetDataKartuResponse.track2data)
+}
+
+// string modecard = 3;
+inline void GetDataKartuResponse::clear_modecard() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.modecard_.ClearToEmpty();
+}
+inline const std::string& GetDataKartuResponse::modecard() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:card_reader_crt.GetDataKartuResponse.modecard)
+  return _internal_modecard();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void GetDataKartuResponse::set_modecard(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.modecard_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:card_reader_crt.GetDataKartuResponse.modecard)
+}
+inline std::string* GetDataKartuResponse::mutable_modecard() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_modecard();
+  // @@protoc_insertion_point(field_mutable:card_reader_crt.GetDataKartuResponse.modecard)
+  return _s;
+}
+inline const std::string& GetDataKartuResponse::_internal_modecard() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.modecard_.Get();
+}
+inline void GetDataKartuResponse::_internal_set_modecard(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.modecard_.Set(value, GetArena());
+}
+inline std::string* GetDataKartuResponse::_internal_mutable_modecard() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.modecard_.Mutable( GetArena());
+}
+inline std::string* GetDataKartuResponse::release_modecard() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:card_reader_crt.GetDataKartuResponse.modecard)
+  return _impl_.modecard_.Release();
+}
+inline void GetDataKartuResponse::set_allocated_modecard(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.modecard_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.modecard_.IsDefault()) {
+          _impl_.modecard_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:card_reader_crt.GetDataKartuResponse.modecard)
+}
+
+// string tag5F34 = 4;
+inline void GetDataKartuResponse::clear_tag5f34() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.tag5f34_.ClearToEmpty();
+}
+inline const std::string& GetDataKartuResponse::tag5f34() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:card_reader_crt.GetDataKartuResponse.tag5F34)
+  return _internal_tag5f34();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void GetDataKartuResponse::set_tag5f34(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.tag5f34_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:card_reader_crt.GetDataKartuResponse.tag5F34)
+}
+inline std::string* GetDataKartuResponse::mutable_tag5f34() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_tag5f34();
+  // @@protoc_insertion_point(field_mutable:card_reader_crt.GetDataKartuResponse.tag5F34)
+  return _s;
+}
+inline const std::string& GetDataKartuResponse::_internal_tag5f34() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.tag5f34_.Get();
+}
+inline void GetDataKartuResponse::_internal_set_tag5f34(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.tag5f34_.Set(value, GetArena());
+}
+inline std::string* GetDataKartuResponse::_internal_mutable_tag5f34() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.tag5f34_.Mutable( GetArena());
+}
+inline std::string* GetDataKartuResponse::release_tag5f34() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:card_reader_crt.GetDataKartuResponse.tag5F34)
+  return _impl_.tag5f34_.Release();
+}
+inline void GetDataKartuResponse::set_allocated_tag5f34(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.tag5f34_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.tag5f34_.IsDefault()) {
+          _impl_.tag5f34_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:card_reader_crt.GetDataKartuResponse.tag5F34)
+}
+
+// string iccdata = 5;
+inline void GetDataKartuResponse::clear_iccdata() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.iccdata_.ClearToEmpty();
+}
+inline const std::string& GetDataKartuResponse::iccdata() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:card_reader_crt.GetDataKartuResponse.iccdata)
+  return _internal_iccdata();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void GetDataKartuResponse::set_iccdata(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.iccdata_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:card_reader_crt.GetDataKartuResponse.iccdata)
+}
+inline std::string* GetDataKartuResponse::mutable_iccdata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_iccdata();
+  // @@protoc_insertion_point(field_mutable:card_reader_crt.GetDataKartuResponse.iccdata)
+  return _s;
+}
+inline const std::string& GetDataKartuResponse::_internal_iccdata() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.iccdata_.Get();
+}
+inline void GetDataKartuResponse::_internal_set_iccdata(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.iccdata_.Set(value, GetArena());
+}
+inline std::string* GetDataKartuResponse::_internal_mutable_iccdata() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.iccdata_.Mutable( GetArena());
+}
+inline std::string* GetDataKartuResponse::release_iccdata() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:card_reader_crt.GetDataKartuResponse.iccdata)
+  return _impl_.iccdata_.Release();
+}
+inline void GetDataKartuResponse::set_allocated_iccdata(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.iccdata_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.iccdata_.IsDefault()) {
+          _impl_.iccdata_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:card_reader_crt.GetDataKartuResponse.iccdata)
+}
+
+// bool status = 6;
+inline void GetDataKartuResponse::clear_status() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.status_ = false;
+}
+inline bool GetDataKartuResponse::status() const {
+  // @@protoc_insertion_point(field_get:card_reader_crt.GetDataKartuResponse.status)
+  return _internal_status();
+}
+inline void GetDataKartuResponse::set_status(bool value) {
+  _internal_set_status(value);
+  // @@protoc_insertion_point(field_set:card_reader_crt.GetDataKartuResponse.status)
+}
+inline bool GetDataKartuResponse::_internal_status() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.status_;
+}
+inline void GetDataKartuResponse::_internal_set_status(bool value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.status_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GetDataKartuRequest
+
+// int32 ammount = 1;
+inline void GetDataKartuRequest::clear_ammount() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.ammount_ = 0;
+}
+inline ::int32_t GetDataKartuRequest::ammount() const {
+  // @@protoc_insertion_point(field_get:card_reader_crt.GetDataKartuRequest.ammount)
+  return _internal_ammount();
+}
+inline void GetDataKartuRequest::set_ammount(::int32_t value) {
+  _internal_set_ammount(value);
+  // @@protoc_insertion_point(field_set:card_reader_crt.GetDataKartuRequest.ammount)
+}
+inline ::int32_t GetDataKartuRequest::_internal_ammount() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.ammount_;
+}
+inline void GetDataKartuRequest::_internal_set_ammount(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.ammount_ = value;
+}
+
+// string formaticcdata = 2;
+inline void GetDataKartuRequest::clear_formaticcdata() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.formaticcdata_.ClearToEmpty();
+}
+inline const std::string& GetDataKartuRequest::formaticcdata() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:card_reader_crt.GetDataKartuRequest.formaticcdata)
+  return _internal_formaticcdata();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void GetDataKartuRequest::set_formaticcdata(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.formaticcdata_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:card_reader_crt.GetDataKartuRequest.formaticcdata)
+}
+inline std::string* GetDataKartuRequest::mutable_formaticcdata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_formaticcdata();
+  // @@protoc_insertion_point(field_mutable:card_reader_crt.GetDataKartuRequest.formaticcdata)
+  return _s;
+}
+inline const std::string& GetDataKartuRequest::_internal_formaticcdata() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.formaticcdata_.Get();
+}
+inline void GetDataKartuRequest::_internal_set_formaticcdata(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  _impl_.formaticcdata_.Set(value, GetArena());
+}
+inline std::string* GetDataKartuRequest::_internal_mutable_formaticcdata() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ;
+  return _impl_.formaticcdata_.Mutable( GetArena());
+}
+inline std::string* GetDataKartuRequest::release_formaticcdata() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:card_reader_crt.GetDataKartuRequest.formaticcdata)
+  return _impl_.formaticcdata_.Release();
+}
+inline void GetDataKartuRequest::set_allocated_formaticcdata(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.formaticcdata_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.formaticcdata_.IsDefault()) {
+          _impl_.formaticcdata_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:card_reader_crt.GetDataKartuRequest.formaticcdata)
+}
+
 // -------------------------------------------------------------------
 
 // EjectResponse

@@ -6,6 +6,15 @@
 #include <grpc++/server.h>
 #include <memory>
 
+struct DataKartuResponse{
+	std::string cardnumber = "";
+	std::string track2data = "";
+	std::string modecard = "";
+	std::string tag5F34 = "";
+	std::string iccdata = "";
+	bool status = false; 
+};
+
 class CommandCardCRT; 
 class Server: public card_reader_crt::CardReader::Service{
 public:
@@ -29,12 +38,14 @@ public:
     virtual ::grpc::Status ReadData(::grpc::ServerContext* context, const ::card_reader_crt::ReadDataRequest* request, ::card_reader_crt::ReadDataResponse* response);
     virtual ::grpc::Status WaitInputReadCard(::grpc::ServerContext* context, const ::card_reader_crt::WaitInputReadCardRequest* request, ::card_reader_crt::WaitInputReadCardResponse* response);
     virtual ::grpc::Status RejectCardOrMoveBin(::grpc::ServerContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest* request, ::card_reader_crt::RejectCardOrMoveBinResponse* response);
+     virtual ::grpc::Status GetDataKartu(::grpc::ServerContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response);
 
     std::string m_com_servis;
     int m_bautrate_servis;
     void RunOpenPinpad(std::string_view host, int port);
 private:
     std::unique_ptr<CommandCardCRT> m_handle;
+    DataKartuResponse dat;
 };
 
 #endif

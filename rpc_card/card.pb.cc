@@ -472,6 +472,62 @@ struct InitRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InitRequestDefaultTypeInternal _InitRequest_default_instance_;
 
+inline constexpr GetDataKartuResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : cardnumber_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        track2data_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        modecard_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        tag5f34_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        iccdata_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        status_{false},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GetDataKartuResponse::GetDataKartuResponse(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct GetDataKartuResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetDataKartuResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetDataKartuResponseDefaultTypeInternal() {}
+  union {
+    GetDataKartuResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetDataKartuResponseDefaultTypeInternal _GetDataKartuResponse_default_instance_;
+
+inline constexpr GetDataKartuRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : formaticcdata_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        ammount_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GetDataKartuRequest::GetDataKartuRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct GetDataKartuRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetDataKartuRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetDataKartuRequestDefaultTypeInternal() {}
+  union {
+    GetDataKartuRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetDataKartuRequestDefaultTypeInternal _GetDataKartuRequest_default_instance_;
+
 inline constexpr EjectResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : status_{false},
@@ -589,12 +645,36 @@ struct CaptureRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CaptureRequestDefaultTypeInternal _CaptureRequest_default_instance_;
 }  // namespace card_reader_crt
-static ::_pb::Metadata file_level_metadata_card_2eproto[34];
+static ::_pb::Metadata file_level_metadata_card_2eproto[36];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_card_2eproto[1];
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_card_2eproto = nullptr;
 const ::uint32_t TableStruct_card_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
     protodesc_cold) = {
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuResponse, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuResponse, _impl_.cardnumber_),
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuResponse, _impl_.track2data_),
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuResponse, _impl_.modecard_),
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuResponse, _impl_.tag5f34_),
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuResponse, _impl_.iccdata_),
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuResponse, _impl_.status_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuRequest, _impl_.ammount_),
+    PROTOBUF_FIELD_OFFSET(::card_reader_crt::GetDataKartuRequest, _impl_.formaticcdata_),
     ~0u,  // no _has_bits_
     PROTOBUF_FIELD_OFFSET(::card_reader_crt::EjectResponse, _internal_metadata_),
     ~0u,  // no _extensions_
@@ -896,43 +976,47 @@ const ::uint32_t TableStruct_card_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
 
 static const ::_pbi::MigrationSchema
     schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-        {0, -1, -1, sizeof(::card_reader_crt::EjectResponse)},
-        {9, -1, -1, sizeof(::card_reader_crt::EjectRequest)},
-        {17, -1, -1, sizeof(::card_reader_crt::RejectCardOrMoveBinResponse)},
-        {26, -1, -1, sizeof(::card_reader_crt::RejectCardOrMoveBinRequest)},
-        {35, -1, -1, sizeof(::card_reader_crt::WaitInputReadCardResponse)},
-        {47, -1, -1, sizeof(::card_reader_crt::WaitInputReadCardRequest)},
-        {56, -1, -1, sizeof(::card_reader_crt::ReadDataResponse)},
-        {67, -1, -1, sizeof(::card_reader_crt::ReadDataRequest)},
-        {75, -1, -1, sizeof(::card_reader_crt::LEDOFFResponse)},
-        {84, -1, -1, sizeof(::card_reader_crt::LEDOFFRequest)},
-        {92, -1, -1, sizeof(::card_reader_crt::LEDBlinkRedResponse)},
-        {101, -1, -1, sizeof(::card_reader_crt::LEDBlinkRedRequest)},
-        {109, -1, -1, sizeof(::card_reader_crt::LEDBlinkOrangeResponse)},
-        {118, -1, -1, sizeof(::card_reader_crt::LEDBlinkOrangeRequest)},
-        {126, -1, -1, sizeof(::card_reader_crt::LEDBlinkGreenResponse)},
-        {135, -1, -1, sizeof(::card_reader_crt::LEDBlinkGreenRequest)},
-        {143, -1, -1, sizeof(::card_reader_crt::CardStatusResponse)},
-        {152, -1, -1, sizeof(::card_reader_crt::CardStatusRequest)},
-        {160, -1, -1, sizeof(::card_reader_crt::RetrieveResponse)},
-        {169, -1, -1, sizeof(::card_reader_crt::RetrieveRequest)},
-        {177, -1, -1, sizeof(::card_reader_crt::CaptureResponse)},
-        {186, -1, -1, sizeof(::card_reader_crt::CaptureRequest)},
-        {194, -1, -1, sizeof(::card_reader_crt::ProhibitCardInResponse)},
-        {203, -1, -1, sizeof(::card_reader_crt::ProhibitCardInRequest)},
-        {211, -1, -1, sizeof(::card_reader_crt::PermitMagCardOnlyResponse)},
-        {220, -1, -1, sizeof(::card_reader_crt::PermitMagCardOnlyRequest)},
-        {228, -1, -1, sizeof(::card_reader_crt::InitResponse)},
-        {237, -1, -1, sizeof(::card_reader_crt::InitRequest)},
-        {246, -1, -1, sizeof(::card_reader_crt::CloseResp)},
-        {254, -1, -1, sizeof(::card_reader_crt::CloseRequest)},
-        {262, -1, -1, sizeof(::card_reader_crt::OpenResp)},
-        {271, -1, -1, sizeof(::card_reader_crt::OpenRequest)},
-        {280, -1, -1, sizeof(::card_reader_crt::IsOpenResp)},
-        {289, -1, -1, sizeof(::card_reader_crt::IsOpenRequest)},
+        {0, -1, -1, sizeof(::card_reader_crt::GetDataKartuResponse)},
+        {14, -1, -1, sizeof(::card_reader_crt::GetDataKartuRequest)},
+        {24, -1, -1, sizeof(::card_reader_crt::EjectResponse)},
+        {33, -1, -1, sizeof(::card_reader_crt::EjectRequest)},
+        {41, -1, -1, sizeof(::card_reader_crt::RejectCardOrMoveBinResponse)},
+        {50, -1, -1, sizeof(::card_reader_crt::RejectCardOrMoveBinRequest)},
+        {59, -1, -1, sizeof(::card_reader_crt::WaitInputReadCardResponse)},
+        {71, -1, -1, sizeof(::card_reader_crt::WaitInputReadCardRequest)},
+        {80, -1, -1, sizeof(::card_reader_crt::ReadDataResponse)},
+        {91, -1, -1, sizeof(::card_reader_crt::ReadDataRequest)},
+        {99, -1, -1, sizeof(::card_reader_crt::LEDOFFResponse)},
+        {108, -1, -1, sizeof(::card_reader_crt::LEDOFFRequest)},
+        {116, -1, -1, sizeof(::card_reader_crt::LEDBlinkRedResponse)},
+        {125, -1, -1, sizeof(::card_reader_crt::LEDBlinkRedRequest)},
+        {133, -1, -1, sizeof(::card_reader_crt::LEDBlinkOrangeResponse)},
+        {142, -1, -1, sizeof(::card_reader_crt::LEDBlinkOrangeRequest)},
+        {150, -1, -1, sizeof(::card_reader_crt::LEDBlinkGreenResponse)},
+        {159, -1, -1, sizeof(::card_reader_crt::LEDBlinkGreenRequest)},
+        {167, -1, -1, sizeof(::card_reader_crt::CardStatusResponse)},
+        {176, -1, -1, sizeof(::card_reader_crt::CardStatusRequest)},
+        {184, -1, -1, sizeof(::card_reader_crt::RetrieveResponse)},
+        {193, -1, -1, sizeof(::card_reader_crt::RetrieveRequest)},
+        {201, -1, -1, sizeof(::card_reader_crt::CaptureResponse)},
+        {210, -1, -1, sizeof(::card_reader_crt::CaptureRequest)},
+        {218, -1, -1, sizeof(::card_reader_crt::ProhibitCardInResponse)},
+        {227, -1, -1, sizeof(::card_reader_crt::ProhibitCardInRequest)},
+        {235, -1, -1, sizeof(::card_reader_crt::PermitMagCardOnlyResponse)},
+        {244, -1, -1, sizeof(::card_reader_crt::PermitMagCardOnlyRequest)},
+        {252, -1, -1, sizeof(::card_reader_crt::InitResponse)},
+        {261, -1, -1, sizeof(::card_reader_crt::InitRequest)},
+        {270, -1, -1, sizeof(::card_reader_crt::CloseResp)},
+        {278, -1, -1, sizeof(::card_reader_crt::CloseRequest)},
+        {286, -1, -1, sizeof(::card_reader_crt::OpenResp)},
+        {295, -1, -1, sizeof(::card_reader_crt::OpenRequest)},
+        {304, -1, -1, sizeof(::card_reader_crt::IsOpenResp)},
+        {313, -1, -1, sizeof(::card_reader_crt::IsOpenRequest)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
+    &::card_reader_crt::_GetDataKartuResponse_default_instance_._instance,
+    &::card_reader_crt::_GetDataKartuRequest_default_instance_._instance,
     &::card_reader_crt::_EjectResponse_default_instance_._instance,
     &::card_reader_crt::_EjectRequest_default_instance_._instance,
     &::card_reader_crt::_RejectCardOrMoveBinResponse_default_instance_._instance,
@@ -969,90 +1053,97 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::card_reader_crt::_IsOpenRequest_default_instance_._instance,
 };
 const char descriptor_table_protodef_card_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-    "\n\ncard.proto\022\017card_reader_crt\"\037\n\rEjectRe"
-    "sponse\022\016\n\006status\030\001 \001(\010\"\016\n\014EjectRequest\"Y"
-    "\n\033RejectCardOrMoveBinResponse\022:\n\006status\030"
-    "\001 \001(\0162*.card_reader_crt.RejectCardOrMove"
-    "BinStatus\"-\n\032RejectCardOrMoveBinRequest\022"
-    "\017\n\007timeout\030\001 \001(\005\"^\n\031WaitInputReadCardRes"
-    "ponse\022\016\n\006status\030\001 \001(\005\022\017\n\007record1\030\002 \001(\t\022\017"
-    "\n\007record2\030\003 \001(\t\022\017\n\007record3\030\004 \001(\t\"+\n\030Wait"
-    "InputReadCardRequest\022\017\n\007timeout\030\001 \001(\005\"E\n"
-    "\020ReadDataResponse\022\017\n\007record1\030\001 \001(\t\022\017\n\007re"
-    "cord2\030\002 \001(\t\022\017\n\007record3\030\003 \001(\t\"\021\n\017ReadData"
-    "Request\" \n\016LEDOFFResponse\022\016\n\006status\030\001 \001("
-    "\010\"\017\n\rLEDOFFRequest\"%\n\023LEDBlinkRedRespons"
-    "e\022\016\n\006status\030\001 \001(\010\"\024\n\022LEDBlinkRedRequest\""
-    "(\n\026LEDBlinkOrangeResponse\022\016\n\006status\030\001 \001("
-    "\010\"\027\n\025LEDBlinkOrangeRequest\"\'\n\025LEDBlinkGr"
-    "eenResponse\022\016\n\006status\030\001 \001(\010\"\026\n\024LEDBlinkG"
-    "reenRequest\"$\n\022CardStatusResponse\022\016\n\006sta"
-    "tus\030\001 \001(\005\"\023\n\021CardStatusRequest\"\"\n\020Retrie"
-    "veResponse\022\016\n\006status\030\001 \001(\010\"\021\n\017RetrieveRe"
-    "quest\"!\n\017CaptureResponse\022\016\n\006status\030\001 \001(\010"
-    "\"\020\n\016CaptureRequest\"(\n\026ProhibitCardInResp"
-    "onse\022\016\n\006status\030\001 \001(\010\"\027\n\025ProhibitCardInRe"
-    "quest\"+\n\031PermitMagCardOnlyResponse\022\016\n\006st"
-    "atus\030\001 \001(\010\"\032\n\030PermitMagCardOnlyRequest\"\036"
-    "\n\014InitResponse\022\016\n\006status\030\001 \001(\010\"\'\n\013InitRe"
-    "quest\022\030\n\020ejectfrontorrear\030\001 \001(\010\"\013\n\tClose"
-    "Resp\"\016\n\014CloseRequest\"\032\n\010OpenResp\022\016\n\006stat"
-    "us\030\001 \001(\010\"\032\n\013OpenRequest\022\013\n\003com\030\001 \001(\t\"\034\n\n"
-    "IsOpenResp\022\016\n\006status\030\001 \001(\010\"\017\n\rIsOpenRequ"
-    "est*\216\001\n\031RejectCardOrMoveBinStatus\022\r\n\tUND"
-    "EFINED\020\000\022\034\n\017NOT_OPEN_DEVICE\020\377\377\377\377\377\377\377\377\377\001\022\036"
-    "\n\021CARD_NOT_DETECTED\020\376\377\377\377\377\377\377\377\377\001\022\024\n\020CARD_M"
-    "OVE_TO_BIN\020\001\022\016\n\nCARD_TAKEN\020\0022\343\013\n\nCardRea"
-    "der\022G\n\006IsOpen\022\036.card_reader_crt.IsOpenRe"
-    "quest\032\033.card_reader_crt.IsOpenResp\"\000\022A\n\004"
-    "Open\022\034.card_reader_crt.OpenRequest\032\031.car"
-    "d_reader_crt.OpenResp\"\000\022D\n\005Close\022\035.card_"
-    "reader_crt.CloseRequest\032\032.card_reader_cr"
-    "t.CloseResp\"\000\022E\n\004Init\022\034.card_reader_crt."
-    "InitRequest\032\035.card_reader_crt.InitRespon"
-    "se\"\000\022l\n\021PermitMagCardOnly\022).card_reader_"
-    "crt.PermitMagCardOnlyRequest\032*.card_read"
-    "er_crt.PermitMagCardOnlyResponse\"\000\022c\n\016Pr"
-    "ohibitCardIn\022&.card_reader_crt.ProhibitC"
-    "ardInRequest\032\'.card_reader_crt.ProhibitC"
-    "ardInResponse\"\000\022H\n\005Eject\022\035.card_reader_c"
-    "rt.EjectRequest\032\036.card_reader_crt.EjectR"
-    "esponse\"\000\022N\n\007Capture\022\037.card_reader_crt.C"
-    "aptureRequest\032 .card_reader_crt.CaptureR"
-    "esponse\"\000\022Q\n\010Retrieve\022 .card_reader_crt."
-    "RetrieveRequest\032!.card_reader_crt.Retrie"
-    "veResponse\"\000\022W\n\nCardStatus\022\".card_reader"
-    "_crt.CardStatusRequest\032#.card_reader_crt"
-    ".CardStatusResponse\"\000\022`\n\rLEDBlinkGreen\022%"
-    ".card_reader_crt.LEDBlinkGreenRequest\032&."
-    "card_reader_crt.LEDBlinkGreenResponse\"\000\022"
-    "c\n\016LEDBlinkOrange\022&.card_reader_crt.LEDB"
-    "linkOrangeRequest\032\'.card_reader_crt.LEDB"
-    "linkOrangeResponse\"\000\022Z\n\013LEDBlinkRed\022#.ca"
-    "rd_reader_crt.LEDBlinkRedRequest\032$.card_"
-    "reader_crt.LEDBlinkRedResponse\"\000\022K\n\006LEDO"
-    "FF\022\036.card_reader_crt.LEDOFFRequest\032\037.car"
-    "d_reader_crt.LEDOFFResponse\"\000\022Q\n\010ReadDat"
-    "a\022 .card_reader_crt.ReadDataRequest\032!.ca"
-    "rd_reader_crt.ReadDataResponse\"\000\022l\n\021Wait"
-    "InputReadCard\022).card_reader_crt.WaitInpu"
-    "tReadCardRequest\032*.card_reader_crt.WaitI"
-    "nputReadCardResponse\"\000\022r\n\023RejectCardOrMo"
-    "veBin\022+.card_reader_crt.RejectCardOrMove"
-    "BinRequest\032,.card_reader_crt.RejectCardO"
-    "rMoveBinResponse\"\000b\006proto3"
+    "\n\ncard.proto\022\017card_reader_crt\"\202\001\n\024GetDat"
+    "aKartuResponse\022\022\n\ncardnumber\030\001 \001(\t\022\022\n\ntr"
+    "ack2data\030\002 \001(\t\022\020\n\010modecard\030\003 \001(\t\022\017\n\007tag5"
+    "F34\030\004 \001(\t\022\017\n\007iccdata\030\005 \001(\t\022\016\n\006status\030\006 \001"
+    "(\010\"=\n\023GetDataKartuRequest\022\017\n\007ammount\030\001 \001"
+    "(\005\022\025\n\rformaticcdata\030\002 \001(\t\"\037\n\rEjectRespon"
+    "se\022\016\n\006status\030\001 \001(\010\"\016\n\014EjectRequest\"Y\n\033Re"
+    "jectCardOrMoveBinResponse\022:\n\006status\030\001 \001("
+    "\0162*.card_reader_crt.RejectCardOrMoveBinS"
+    "tatus\"-\n\032RejectCardOrMoveBinRequest\022\017\n\007t"
+    "imeout\030\001 \001(\005\"^\n\031WaitInputReadCardRespons"
+    "e\022\016\n\006status\030\001 \001(\005\022\017\n\007record1\030\002 \001(\t\022\017\n\007re"
+    "cord2\030\003 \001(\t\022\017\n\007record3\030\004 \001(\t\"+\n\030WaitInpu"
+    "tReadCardRequest\022\017\n\007timeout\030\001 \001(\005\"E\n\020Rea"
+    "dDataResponse\022\017\n\007record1\030\001 \001(\t\022\017\n\007record"
+    "2\030\002 \001(\t\022\017\n\007record3\030\003 \001(\t\"\021\n\017ReadDataRequ"
+    "est\" \n\016LEDOFFResponse\022\016\n\006status\030\001 \001(\010\"\017\n"
+    "\rLEDOFFRequest\"%\n\023LEDBlinkRedResponse\022\016\n"
+    "\006status\030\001 \001(\010\"\024\n\022LEDBlinkRedRequest\"(\n\026L"
+    "EDBlinkOrangeResponse\022\016\n\006status\030\001 \001(\010\"\027\n"
+    "\025LEDBlinkOrangeRequest\"\'\n\025LEDBlinkGreenR"
+    "esponse\022\016\n\006status\030\001 \001(\010\"\026\n\024LEDBlinkGreen"
+    "Request\"$\n\022CardStatusResponse\022\016\n\006status\030"
+    "\001 \001(\005\"\023\n\021CardStatusRequest\"\"\n\020RetrieveRe"
+    "sponse\022\016\n\006status\030\001 \001(\010\"\021\n\017RetrieveReques"
+    "t\"!\n\017CaptureResponse\022\016\n\006status\030\001 \001(\010\"\020\n\016"
+    "CaptureRequest\"(\n\026ProhibitCardInResponse"
+    "\022\016\n\006status\030\001 \001(\010\"\027\n\025ProhibitCardInReques"
+    "t\"+\n\031PermitMagCardOnlyResponse\022\016\n\006status"
+    "\030\001 \001(\010\"\032\n\030PermitMagCardOnlyRequest\"\036\n\014In"
+    "itResponse\022\016\n\006status\030\001 \001(\010\"\'\n\013InitReques"
+    "t\022\030\n\020ejectfrontorrear\030\001 \001(\010\"\013\n\tCloseResp"
+    "\"\016\n\014CloseRequest\"\032\n\010OpenResp\022\016\n\006status\030\001"
+    " \001(\010\"\032\n\013OpenRequest\022\013\n\003com\030\001 \001(\t\"\034\n\nIsOp"
+    "enResp\022\016\n\006status\030\001 \001(\010\"\017\n\rIsOpenRequest*"
+    "\216\001\n\031RejectCardOrMoveBinStatus\022\r\n\tUNDEFIN"
+    "ED\020\000\022\034\n\017NOT_OPEN_DEVICE\020\377\377\377\377\377\377\377\377\377\001\022\036\n\021CA"
+    "RD_NOT_DETECTED\020\376\377\377\377\377\377\377\377\377\001\022\024\n\020CARD_MOVE_"
+    "TO_BIN\020\001\022\016\n\nCARD_TAKEN\020\0022\302\014\n\nCardReader\022"
+    "G\n\006IsOpen\022\036.card_reader_crt.IsOpenReques"
+    "t\032\033.card_reader_crt.IsOpenResp\"\000\022A\n\004Open"
+    "\022\034.card_reader_crt.OpenRequest\032\031.card_re"
+    "ader_crt.OpenResp\"\000\022D\n\005Close\022\035.card_read"
+    "er_crt.CloseRequest\032\032.card_reader_crt.Cl"
+    "oseResp\"\000\022E\n\004Init\022\034.card_reader_crt.Init"
+    "Request\032\035.card_reader_crt.InitResponse\"\000"
+    "\022l\n\021PermitMagCardOnly\022).card_reader_crt."
+    "PermitMagCardOnlyRequest\032*.card_reader_c"
+    "rt.PermitMagCardOnlyResponse\"\000\022c\n\016Prohib"
+    "itCardIn\022&.card_reader_crt.ProhibitCardI"
+    "nRequest\032\'.card_reader_crt.ProhibitCardI"
+    "nResponse\"\000\022H\n\005Eject\022\035.card_reader_crt.E"
+    "jectRequest\032\036.card_reader_crt.EjectRespo"
+    "nse\"\000\022N\n\007Capture\022\037.card_reader_crt.Captu"
+    "reRequest\032 .card_reader_crt.CaptureRespo"
+    "nse\"\000\022Q\n\010Retrieve\022 .card_reader_crt.Retr"
+    "ieveRequest\032!.card_reader_crt.RetrieveRe"
+    "sponse\"\000\022W\n\nCardStatus\022\".card_reader_crt"
+    ".CardStatusRequest\032#.card_reader_crt.Car"
+    "dStatusResponse\"\000\022`\n\rLEDBlinkGreen\022%.car"
+    "d_reader_crt.LEDBlinkGreenRequest\032&.card"
+    "_reader_crt.LEDBlinkGreenResponse\"\000\022c\n\016L"
+    "EDBlinkOrange\022&.card_reader_crt.LEDBlink"
+    "OrangeRequest\032\'.card_reader_crt.LEDBlink"
+    "OrangeResponse\"\000\022Z\n\013LEDBlinkRed\022#.card_r"
+    "eader_crt.LEDBlinkRedRequest\032$.card_read"
+    "er_crt.LEDBlinkRedResponse\"\000\022K\n\006LEDOFF\022\036"
+    ".card_reader_crt.LEDOFFRequest\032\037.card_re"
+    "ader_crt.LEDOFFResponse\"\000\022Q\n\010ReadData\022 ."
+    "card_reader_crt.ReadDataRequest\032!.card_r"
+    "eader_crt.ReadDataResponse\"\000\022l\n\021WaitInpu"
+    "tReadCard\022).card_reader_crt.WaitInputRea"
+    "dCardRequest\032*.card_reader_crt.WaitInput"
+    "ReadCardResponse\"\000\022r\n\023RejectCardOrMoveBi"
+    "n\022+.card_reader_crt.RejectCardOrMoveBinR"
+    "equest\032,.card_reader_crt.RejectCardOrMov"
+    "eBinResponse\"\000\022]\n\014GetDataKartu\022$.card_re"
+    "ader_crt.GetDataKartuRequest\032%.card_read"
+    "er_crt.GetDataKartuResponse\"\000b\006proto3"
 };
 static ::absl::once_flag descriptor_table_card_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_card_2eproto = {
     false,
     false,
-    2866,
+    3157,
     descriptor_table_protodef_card_2eproto,
     "card.proto",
     &descriptor_table_card_2eproto_once,
     nullptr,
     0,
-    34,
+    36,
     schemas,
     file_default_instances,
     TableStruct_card_2eproto::offsets,
@@ -1087,6 +1178,555 @@ PROTOBUF_CONSTINIT const uint32_t RejectCardOrMoveBinStatus_internal_data_[] = {
     393214u, 0u, };
 bool RejectCardOrMoveBinStatus_IsValid(int value) {
   return -2 <= value && value <= 2;
+}
+// ===================================================================
+
+class GetDataKartuResponse::_Internal {
+ public:
+};
+
+GetDataKartuResponse::GetDataKartuResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:card_reader_crt.GetDataKartuResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE GetDataKartuResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : cardnumber_(arena, from.cardnumber_),
+        track2data_(arena, from.track2data_),
+        modecard_(arena, from.modecard_),
+        tag5f34_(arena, from.tag5f34_),
+        iccdata_(arena, from.iccdata_),
+        _cached_size_{0} {}
+
+GetDataKartuResponse::GetDataKartuResponse(
+    ::google::protobuf::Arena* arena,
+    const GetDataKartuResponse& from)
+    : ::google::protobuf::Message(arena) {
+  GetDataKartuResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  _impl_.status_ = from._impl_.status_;
+
+  // @@protoc_insertion_point(copy_constructor:card_reader_crt.GetDataKartuResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE GetDataKartuResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : cardnumber_(arena),
+        track2data_(arena),
+        modecard_(arena),
+        tag5f34_(arena),
+        iccdata_(arena),
+        _cached_size_{0} {}
+
+inline void GetDataKartuResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.status_ = {};
+}
+GetDataKartuResponse::~GetDataKartuResponse() {
+  // @@protoc_insertion_point(destructor:card_reader_crt.GetDataKartuResponse)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void GetDataKartuResponse::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.cardnumber_.Destroy();
+  _impl_.track2data_.Destroy();
+  _impl_.modecard_.Destroy();
+  _impl_.tag5f34_.Destroy();
+  _impl_.iccdata_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void GetDataKartuResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:card_reader_crt.GetDataKartuResponse)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.cardnumber_.ClearToEmpty();
+  _impl_.track2data_.ClearToEmpty();
+  _impl_.modecard_.ClearToEmpty();
+  _impl_.tag5f34_.ClearToEmpty();
+  _impl_.iccdata_.ClearToEmpty();
+  _impl_.status_ = false;
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* GetDataKartuResponse::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 6, 0, 87, 2> GetDataKartuResponse::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    6, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967232,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    6,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_GetDataKartuResponse_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string cardnumber = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.cardnumber_)}},
+    // string track2data = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.track2data_)}},
+    // string modecard = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.modecard_)}},
+    // string tag5F34 = 4;
+    {::_pbi::TcParser::FastUS1,
+     {34, 63, 0, PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.tag5f34_)}},
+    // string iccdata = 5;
+    {::_pbi::TcParser::FastUS1,
+     {42, 63, 0, PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.iccdata_)}},
+    // bool status = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(GetDataKartuResponse, _impl_.status_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.status_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string cardnumber = 1;
+    {PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.cardnumber_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string track2data = 2;
+    {PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.track2data_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string modecard = 3;
+    {PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.modecard_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string tag5F34 = 4;
+    {PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.tag5f34_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string iccdata = 5;
+    {PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.iccdata_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // bool status = 6;
+    {PROTOBUF_FIELD_OFFSET(GetDataKartuResponse, _impl_.status_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+  }},
+  // no aux_entries
+  {{
+    "\44\12\12\10\7\7\0\0"
+    "card_reader_crt.GetDataKartuResponse"
+    "cardnumber"
+    "track2data"
+    "modecard"
+    "tag5F34"
+    "iccdata"
+  }},
+};
+
+::uint8_t* GetDataKartuResponse::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:card_reader_crt.GetDataKartuResponse)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // string cardnumber = 1;
+  if (!this->_internal_cardnumber().empty()) {
+    const std::string& _s = this->_internal_cardnumber();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "card_reader_crt.GetDataKartuResponse.cardnumber");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
+  // string track2data = 2;
+  if (!this->_internal_track2data().empty()) {
+    const std::string& _s = this->_internal_track2data();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "card_reader_crt.GetDataKartuResponse.track2data");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
+  }
+
+  // string modecard = 3;
+  if (!this->_internal_modecard().empty()) {
+    const std::string& _s = this->_internal_modecard();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "card_reader_crt.GetDataKartuResponse.modecard");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
+  }
+
+  // string tag5F34 = 4;
+  if (!this->_internal_tag5f34().empty()) {
+    const std::string& _s = this->_internal_tag5f34();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "card_reader_crt.GetDataKartuResponse.tag5F34");
+    target = stream->WriteStringMaybeAliased(4, _s, target);
+  }
+
+  // string iccdata = 5;
+  if (!this->_internal_iccdata().empty()) {
+    const std::string& _s = this->_internal_iccdata();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "card_reader_crt.GetDataKartuResponse.iccdata");
+    target = stream->WriteStringMaybeAliased(5, _s, target);
+  }
+
+  // bool status = 6;
+  if (this->_internal_status() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        6, this->_internal_status(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:card_reader_crt.GetDataKartuResponse)
+  return target;
+}
+
+::size_t GetDataKartuResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:card_reader_crt.GetDataKartuResponse)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string cardnumber = 1;
+  if (!this->_internal_cardnumber().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_cardnumber());
+  }
+
+  // string track2data = 2;
+  if (!this->_internal_track2data().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_track2data());
+  }
+
+  // string modecard = 3;
+  if (!this->_internal_modecard().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_modecard());
+  }
+
+  // string tag5F34 = 4;
+  if (!this->_internal_tag5f34().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_tag5f34());
+  }
+
+  // string iccdata = 5;
+  if (!this->_internal_iccdata().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_iccdata());
+  }
+
+  // bool status = 6;
+  if (this->_internal_status() != 0) {
+    total_size += 2;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData GetDataKartuResponse::_class_data_ = {
+    GetDataKartuResponse::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* GetDataKartuResponse::GetClassData() const {
+  return &_class_data_;
+}
+
+void GetDataKartuResponse::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<GetDataKartuResponse*>(&to_msg);
+  auto& from = static_cast<const GetDataKartuResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:card_reader_crt.GetDataKartuResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_cardnumber().empty()) {
+    _this->_internal_set_cardnumber(from._internal_cardnumber());
+  }
+  if (!from._internal_track2data().empty()) {
+    _this->_internal_set_track2data(from._internal_track2data());
+  }
+  if (!from._internal_modecard().empty()) {
+    _this->_internal_set_modecard(from._internal_modecard());
+  }
+  if (!from._internal_tag5f34().empty()) {
+    _this->_internal_set_tag5f34(from._internal_tag5f34());
+  }
+  if (!from._internal_iccdata().empty()) {
+    _this->_internal_set_iccdata(from._internal_iccdata());
+  }
+  if (from._internal_status() != 0) {
+    _this->_internal_set_status(from._internal_status());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GetDataKartuResponse::CopyFrom(const GetDataKartuResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:card_reader_crt.GetDataKartuResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool GetDataKartuResponse::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* GetDataKartuResponse::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void GetDataKartuResponse::InternalSwap(GetDataKartuResponse* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.cardnumber_, &other->_impl_.cardnumber_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.track2data_, &other->_impl_.track2data_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.modecard_, &other->_impl_.modecard_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.tag5f34_, &other->_impl_.tag5f34_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.iccdata_, &other->_impl_.iccdata_, arena);
+        swap(_impl_.status_, other->_impl_.status_);
+}
+
+::google::protobuf::Metadata GetDataKartuResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
+      file_level_metadata_card_2eproto[0]);
+}
+// ===================================================================
+
+class GetDataKartuRequest::_Internal {
+ public:
+};
+
+GetDataKartuRequest::GetDataKartuRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:card_reader_crt.GetDataKartuRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE GetDataKartuRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from)
+      : formaticcdata_(arena, from.formaticcdata_),
+        _cached_size_{0} {}
+
+GetDataKartuRequest::GetDataKartuRequest(
+    ::google::protobuf::Arena* arena,
+    const GetDataKartuRequest& from)
+    : ::google::protobuf::Message(arena) {
+  GetDataKartuRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
+  _impl_.ammount_ = from._impl_.ammount_;
+
+  // @@protoc_insertion_point(copy_constructor:card_reader_crt.GetDataKartuRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE GetDataKartuRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : formaticcdata_(arena),
+        _cached_size_{0} {}
+
+inline void GetDataKartuRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.ammount_ = {};
+}
+GetDataKartuRequest::~GetDataKartuRequest() {
+  // @@protoc_insertion_point(destructor:card_reader_crt.GetDataKartuRequest)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void GetDataKartuRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.formaticcdata_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_NOINLINE void GetDataKartuRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:card_reader_crt.GetDataKartuRequest)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.formaticcdata_.ClearToEmpty();
+  _impl_.ammount_ = 0;
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+const char* GetDataKartuRequest::_InternalParse(
+    const char* ptr, ::_pbi::ParseContext* ctx) {
+  ptr = ::_pbi::TcParser::ParseLoop(this, ptr, ctx, &_table_.header);
+  return ptr;
+}
+
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 57, 2> GetDataKartuRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_GetDataKartuRequest_default_instance_._instance,
+    ::_pbi::TcParser::GenericFallback,  // fallback
+  }, {{
+    // string formaticcdata = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(GetDataKartuRequest, _impl_.formaticcdata_)}},
+    // int32 ammount = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GetDataKartuRequest, _impl_.ammount_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(GetDataKartuRequest, _impl_.ammount_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // int32 ammount = 1;
+    {PROTOBUF_FIELD_OFFSET(GetDataKartuRequest, _impl_.ammount_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // string formaticcdata = 2;
+    {PROTOBUF_FIELD_OFFSET(GetDataKartuRequest, _impl_.formaticcdata_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\43\0\15\0\0\0\0\0"
+    "card_reader_crt.GetDataKartuRequest"
+    "formaticcdata"
+  }},
+};
+
+::uint8_t* GetDataKartuRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:card_reader_crt.GetDataKartuRequest)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // int32 ammount = 1;
+  if (this->_internal_ammount() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt32ToArrayWithField<1>(
+            stream, this->_internal_ammount(), target);
+  }
+
+  // string formaticcdata = 2;
+  if (!this->_internal_formaticcdata().empty()) {
+    const std::string& _s = this->_internal_formaticcdata();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "card_reader_crt.GetDataKartuRequest.formaticcdata");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:card_reader_crt.GetDataKartuRequest)
+  return target;
+}
+
+::size_t GetDataKartuRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:card_reader_crt.GetDataKartuRequest)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string formaticcdata = 2;
+  if (!this->_internal_formaticcdata().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_formaticcdata());
+  }
+
+  // int32 ammount = 1;
+  if (this->_internal_ammount() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+        this->_internal_ammount());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::google::protobuf::Message::ClassData GetDataKartuRequest::_class_data_ = {
+    GetDataKartuRequest::MergeImpl,
+    nullptr,  // OnDemandRegisterArenaDtor
+};
+const ::google::protobuf::Message::ClassData* GetDataKartuRequest::GetClassData() const {
+  return &_class_data_;
+}
+
+void GetDataKartuRequest::MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg) {
+  auto* const _this = static_cast<GetDataKartuRequest*>(&to_msg);
+  auto& from = static_cast<const GetDataKartuRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:card_reader_crt.GetDataKartuRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_formaticcdata().empty()) {
+    _this->_internal_set_formaticcdata(from._internal_formaticcdata());
+  }
+  if (from._internal_ammount() != 0) {
+    _this->_internal_set_ammount(from._internal_ammount());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GetDataKartuRequest::CopyFrom(const GetDataKartuRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:card_reader_crt.GetDataKartuRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+PROTOBUF_NOINLINE bool GetDataKartuRequest::IsInitialized() const {
+  return true;
+}
+
+::_pbi::CachedSize* GetDataKartuRequest::AccessCachedSize() const {
+  return &_impl_._cached_size_;
+}
+void GetDataKartuRequest::InternalSwap(GetDataKartuRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.formaticcdata_, &other->_impl_.formaticcdata_, arena);
+        swap(_impl_.ammount_, other->_impl_.ammount_);
+}
+
+::google::protobuf::Metadata GetDataKartuRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
+      file_level_metadata_card_2eproto[1]);
 }
 // ===================================================================
 
@@ -1255,7 +1895,7 @@ void EjectResponse::InternalSwap(EjectResponse* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata EjectResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[0]);
+      file_level_metadata_card_2eproto[2]);
 }
 // ===================================================================
 
@@ -1290,7 +1930,7 @@ EjectRequest::EjectRequest(
 ::google::protobuf::Metadata EjectRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[1]);
+      file_level_metadata_card_2eproto[3]);
 }
 // ===================================================================
 
@@ -1460,7 +2100,7 @@ void RejectCardOrMoveBinResponse::InternalSwap(RejectCardOrMoveBinResponse* PROT
 ::google::protobuf::Metadata RejectCardOrMoveBinResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[2]);
+      file_level_metadata_card_2eproto[4]);
 }
 // ===================================================================
 
@@ -1630,7 +2270,7 @@ void RejectCardOrMoveBinRequest::InternalSwap(RejectCardOrMoveBinRequest* PROTOB
 ::google::protobuf::Metadata RejectCardOrMoveBinRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[3]);
+      file_level_metadata_card_2eproto[5]);
 }
 // ===================================================================
 
@@ -1904,7 +2544,7 @@ void WaitInputReadCardResponse::InternalSwap(WaitInputReadCardResponse* PROTOBUF
 ::google::protobuf::Metadata WaitInputReadCardResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[4]);
+      file_level_metadata_card_2eproto[6]);
 }
 // ===================================================================
 
@@ -2074,7 +2714,7 @@ void WaitInputReadCardRequest::InternalSwap(WaitInputReadCardRequest* PROTOBUF_R
 ::google::protobuf::Metadata WaitInputReadCardRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[5]);
+      file_level_metadata_card_2eproto[7]);
 }
 // ===================================================================
 
@@ -2323,7 +2963,7 @@ void ReadDataResponse::InternalSwap(ReadDataResponse* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata ReadDataResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[6]);
+      file_level_metadata_card_2eproto[8]);
 }
 // ===================================================================
 
@@ -2358,7 +2998,7 @@ ReadDataRequest::ReadDataRequest(
 ::google::protobuf::Metadata ReadDataRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[7]);
+      file_level_metadata_card_2eproto[9]);
 }
 // ===================================================================
 
@@ -2527,7 +3167,7 @@ void LEDOFFResponse::InternalSwap(LEDOFFResponse* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata LEDOFFResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[8]);
+      file_level_metadata_card_2eproto[10]);
 }
 // ===================================================================
 
@@ -2562,7 +3202,7 @@ LEDOFFRequest::LEDOFFRequest(
 ::google::protobuf::Metadata LEDOFFRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[9]);
+      file_level_metadata_card_2eproto[11]);
 }
 // ===================================================================
 
@@ -2731,7 +3371,7 @@ void LEDBlinkRedResponse::InternalSwap(LEDBlinkRedResponse* PROTOBUF_RESTRICT ot
 ::google::protobuf::Metadata LEDBlinkRedResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[10]);
+      file_level_metadata_card_2eproto[12]);
 }
 // ===================================================================
 
@@ -2766,7 +3406,7 @@ LEDBlinkRedRequest::LEDBlinkRedRequest(
 ::google::protobuf::Metadata LEDBlinkRedRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[11]);
+      file_level_metadata_card_2eproto[13]);
 }
 // ===================================================================
 
@@ -2935,7 +3575,7 @@ void LEDBlinkOrangeResponse::InternalSwap(LEDBlinkOrangeResponse* PROTOBUF_RESTR
 ::google::protobuf::Metadata LEDBlinkOrangeResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[12]);
+      file_level_metadata_card_2eproto[14]);
 }
 // ===================================================================
 
@@ -2970,7 +3610,7 @@ LEDBlinkOrangeRequest::LEDBlinkOrangeRequest(
 ::google::protobuf::Metadata LEDBlinkOrangeRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[13]);
+      file_level_metadata_card_2eproto[15]);
 }
 // ===================================================================
 
@@ -3139,7 +3779,7 @@ void LEDBlinkGreenResponse::InternalSwap(LEDBlinkGreenResponse* PROTOBUF_RESTRIC
 ::google::protobuf::Metadata LEDBlinkGreenResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[14]);
+      file_level_metadata_card_2eproto[16]);
 }
 // ===================================================================
 
@@ -3174,7 +3814,7 @@ LEDBlinkGreenRequest::LEDBlinkGreenRequest(
 ::google::protobuf::Metadata LEDBlinkGreenRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[15]);
+      file_level_metadata_card_2eproto[17]);
 }
 // ===================================================================
 
@@ -3344,7 +3984,7 @@ void CardStatusResponse::InternalSwap(CardStatusResponse* PROTOBUF_RESTRICT othe
 ::google::protobuf::Metadata CardStatusResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[16]);
+      file_level_metadata_card_2eproto[18]);
 }
 // ===================================================================
 
@@ -3379,7 +4019,7 @@ CardStatusRequest::CardStatusRequest(
 ::google::protobuf::Metadata CardStatusRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[17]);
+      file_level_metadata_card_2eproto[19]);
 }
 // ===================================================================
 
@@ -3548,7 +4188,7 @@ void RetrieveResponse::InternalSwap(RetrieveResponse* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata RetrieveResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[18]);
+      file_level_metadata_card_2eproto[20]);
 }
 // ===================================================================
 
@@ -3583,7 +4223,7 @@ RetrieveRequest::RetrieveRequest(
 ::google::protobuf::Metadata RetrieveRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[19]);
+      file_level_metadata_card_2eproto[21]);
 }
 // ===================================================================
 
@@ -3752,7 +4392,7 @@ void CaptureResponse::InternalSwap(CaptureResponse* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata CaptureResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[20]);
+      file_level_metadata_card_2eproto[22]);
 }
 // ===================================================================
 
@@ -3787,7 +4427,7 @@ CaptureRequest::CaptureRequest(
 ::google::protobuf::Metadata CaptureRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[21]);
+      file_level_metadata_card_2eproto[23]);
 }
 // ===================================================================
 
@@ -3956,7 +4596,7 @@ void ProhibitCardInResponse::InternalSwap(ProhibitCardInResponse* PROTOBUF_RESTR
 ::google::protobuf::Metadata ProhibitCardInResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[22]);
+      file_level_metadata_card_2eproto[24]);
 }
 // ===================================================================
 
@@ -3991,7 +4631,7 @@ ProhibitCardInRequest::ProhibitCardInRequest(
 ::google::protobuf::Metadata ProhibitCardInRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[23]);
+      file_level_metadata_card_2eproto[25]);
 }
 // ===================================================================
 
@@ -4160,7 +4800,7 @@ void PermitMagCardOnlyResponse::InternalSwap(PermitMagCardOnlyResponse* PROTOBUF
 ::google::protobuf::Metadata PermitMagCardOnlyResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[24]);
+      file_level_metadata_card_2eproto[26]);
 }
 // ===================================================================
 
@@ -4195,7 +4835,7 @@ PermitMagCardOnlyRequest::PermitMagCardOnlyRequest(
 ::google::protobuf::Metadata PermitMagCardOnlyRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[25]);
+      file_level_metadata_card_2eproto[27]);
 }
 // ===================================================================
 
@@ -4364,7 +5004,7 @@ void InitResponse::InternalSwap(InitResponse* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata InitResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[26]);
+      file_level_metadata_card_2eproto[28]);
 }
 // ===================================================================
 
@@ -4533,7 +5173,7 @@ void InitRequest::InternalSwap(InitRequest* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata InitRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[27]);
+      file_level_metadata_card_2eproto[29]);
 }
 // ===================================================================
 
@@ -4568,7 +5208,7 @@ CloseResp::CloseResp(
 ::google::protobuf::Metadata CloseResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[28]);
+      file_level_metadata_card_2eproto[30]);
 }
 // ===================================================================
 
@@ -4603,7 +5243,7 @@ CloseRequest::CloseRequest(
 ::google::protobuf::Metadata CloseRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[29]);
+      file_level_metadata_card_2eproto[31]);
 }
 // ===================================================================
 
@@ -4772,7 +5412,7 @@ void OpenResp::InternalSwap(OpenResp* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata OpenResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[30]);
+      file_level_metadata_card_2eproto[32]);
 }
 // ===================================================================
 
@@ -4962,7 +5602,7 @@ void OpenRequest::InternalSwap(OpenRequest* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata OpenRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[31]);
+      file_level_metadata_card_2eproto[33]);
 }
 // ===================================================================
 
@@ -5131,7 +5771,7 @@ void IsOpenResp::InternalSwap(IsOpenResp* PROTOBUF_RESTRICT other) {
 ::google::protobuf::Metadata IsOpenResp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[32]);
+      file_level_metadata_card_2eproto[34]);
 }
 // ===================================================================
 
@@ -5166,7 +5806,7 @@ IsOpenRequest::IsOpenRequest(
 ::google::protobuf::Metadata IsOpenRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_card_2eproto_getter, &descriptor_table_card_2eproto_once,
-      file_level_metadata_card_2eproto[33]);
+      file_level_metadata_card_2eproto[35]);
 }
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace card_reader_crt

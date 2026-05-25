@@ -154,6 +154,13 @@ class CardReader final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::RejectCardOrMoveBinResponse>> PrepareAsyncRejectCardOrMoveBin(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::RejectCardOrMoveBinResponse>>(PrepareAsyncRejectCardOrMoveBinRaw(context, request, cq));
     }
+    virtual ::grpc::Status GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::card_reader_crt::GetDataKartuResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::GetDataKartuResponse>> AsyncGetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::GetDataKartuResponse>>(AsyncGetDataKartuRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::GetDataKartuResponse>> PrepareAsyncGetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::GetDataKartuResponse>>(PrepareAsyncGetDataKartuRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -191,6 +198,8 @@ class CardReader final {
       virtual void WaitInputReadCard(::grpc::ClientContext* context, const ::card_reader_crt::WaitInputReadCardRequest* request, ::card_reader_crt::WaitInputReadCardResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void RejectCardOrMoveBin(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest* request, ::card_reader_crt::RejectCardOrMoveBinResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void RejectCardOrMoveBin(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest* request, ::card_reader_crt::RejectCardOrMoveBinResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -230,6 +239,8 @@ class CardReader final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::WaitInputReadCardResponse>* PrepareAsyncWaitInputReadCardRaw(::grpc::ClientContext* context, const ::card_reader_crt::WaitInputReadCardRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::RejectCardOrMoveBinResponse>* AsyncRejectCardOrMoveBinRaw(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::RejectCardOrMoveBinResponse>* PrepareAsyncRejectCardOrMoveBinRaw(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::GetDataKartuResponse>* AsyncGetDataKartuRaw(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::card_reader_crt::GetDataKartuResponse>* PrepareAsyncGetDataKartuRaw(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -353,6 +364,13 @@ class CardReader final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::card_reader_crt::RejectCardOrMoveBinResponse>> PrepareAsyncRejectCardOrMoveBin(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::card_reader_crt::RejectCardOrMoveBinResponse>>(PrepareAsyncRejectCardOrMoveBinRaw(context, request, cq));
     }
+    ::grpc::Status GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::card_reader_crt::GetDataKartuResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::card_reader_crt::GetDataKartuResponse>> AsyncGetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::card_reader_crt::GetDataKartuResponse>>(AsyncGetDataKartuRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::card_reader_crt::GetDataKartuResponse>> PrepareAsyncGetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::card_reader_crt::GetDataKartuResponse>>(PrepareAsyncGetDataKartuRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -390,6 +408,8 @@ class CardReader final {
       void WaitInputReadCard(::grpc::ClientContext* context, const ::card_reader_crt::WaitInputReadCardRequest* request, ::card_reader_crt::WaitInputReadCardResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void RejectCardOrMoveBin(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest* request, ::card_reader_crt::RejectCardOrMoveBinResponse* response, std::function<void(::grpc::Status)>) override;
       void RejectCardOrMoveBin(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest* request, ::card_reader_crt::RejectCardOrMoveBinResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -435,6 +455,8 @@ class CardReader final {
     ::grpc::ClientAsyncResponseReader< ::card_reader_crt::WaitInputReadCardResponse>* PrepareAsyncWaitInputReadCardRaw(::grpc::ClientContext* context, const ::card_reader_crt::WaitInputReadCardRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::card_reader_crt::RejectCardOrMoveBinResponse>* AsyncRejectCardOrMoveBinRaw(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::card_reader_crt::RejectCardOrMoveBinResponse>* PrepareAsyncRejectCardOrMoveBinRaw(::grpc::ClientContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::card_reader_crt::GetDataKartuResponse>* AsyncGetDataKartuRaw(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::card_reader_crt::GetDataKartuResponse>* PrepareAsyncGetDataKartuRaw(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_IsOpen_;
     const ::grpc::internal::RpcMethod rpcmethod_Open_;
     const ::grpc::internal::RpcMethod rpcmethod_Close_;
@@ -452,6 +474,7 @@ class CardReader final {
     const ::grpc::internal::RpcMethod rpcmethod_ReadData_;
     const ::grpc::internal::RpcMethod rpcmethod_WaitInputReadCard_;
     const ::grpc::internal::RpcMethod rpcmethod_RejectCardOrMoveBin_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetDataKartu_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -476,6 +499,7 @@ class CardReader final {
     virtual ::grpc::Status ReadData(::grpc::ServerContext* context, const ::card_reader_crt::ReadDataRequest* request, ::card_reader_crt::ReadDataResponse* response);
     virtual ::grpc::Status WaitInputReadCard(::grpc::ServerContext* context, const ::card_reader_crt::WaitInputReadCardRequest* request, ::card_reader_crt::WaitInputReadCardResponse* response);
     virtual ::grpc::Status RejectCardOrMoveBin(::grpc::ServerContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest* request, ::card_reader_crt::RejectCardOrMoveBinResponse* response);
+    virtual ::grpc::Status GetDataKartu(::grpc::ServerContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_IsOpen : public BaseClass {
@@ -817,7 +841,27 @@ class CardReader final {
       ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_IsOpen<WithAsyncMethod_Open<WithAsyncMethod_Close<WithAsyncMethod_Init<WithAsyncMethod_PermitMagCardOnly<WithAsyncMethod_ProhibitCardIn<WithAsyncMethod_Eject<WithAsyncMethod_Capture<WithAsyncMethod_Retrieve<WithAsyncMethod_CardStatus<WithAsyncMethod_LEDBlinkGreen<WithAsyncMethod_LEDBlinkOrange<WithAsyncMethod_LEDBlinkRed<WithAsyncMethod_LEDOFF<WithAsyncMethod_ReadData<WithAsyncMethod_WaitInputReadCard<WithAsyncMethod_RejectCardOrMoveBin<Service > > > > > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_GetDataKartu : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_GetDataKartu() {
+      ::grpc::Service::MarkMethodAsync(17);
+    }
+    ~WithAsyncMethod_GetDataKartu() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDataKartu(::grpc::ServerContext* /*context*/, const ::card_reader_crt::GetDataKartuRequest* /*request*/, ::card_reader_crt::GetDataKartuResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetDataKartu(::grpc::ServerContext* context, ::card_reader_crt::GetDataKartuRequest* request, ::grpc::ServerAsyncResponseWriter< ::card_reader_crt::GetDataKartuResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_IsOpen<WithAsyncMethod_Open<WithAsyncMethod_Close<WithAsyncMethod_Init<WithAsyncMethod_PermitMagCardOnly<WithAsyncMethod_ProhibitCardIn<WithAsyncMethod_Eject<WithAsyncMethod_Capture<WithAsyncMethod_Retrieve<WithAsyncMethod_CardStatus<WithAsyncMethod_LEDBlinkGreen<WithAsyncMethod_LEDBlinkOrange<WithAsyncMethod_LEDBlinkRed<WithAsyncMethod_LEDOFF<WithAsyncMethod_ReadData<WithAsyncMethod_WaitInputReadCard<WithAsyncMethod_RejectCardOrMoveBin<WithAsyncMethod_GetDataKartu<Service > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_IsOpen : public BaseClass {
    private:
@@ -1277,7 +1321,34 @@ class CardReader final {
     virtual ::grpc::ServerUnaryReactor* RejectCardOrMoveBin(
       ::grpc::CallbackServerContext* /*context*/, const ::card_reader_crt::RejectCardOrMoveBinRequest* /*request*/, ::card_reader_crt::RejectCardOrMoveBinResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_IsOpen<WithCallbackMethod_Open<WithCallbackMethod_Close<WithCallbackMethod_Init<WithCallbackMethod_PermitMagCardOnly<WithCallbackMethod_ProhibitCardIn<WithCallbackMethod_Eject<WithCallbackMethod_Capture<WithCallbackMethod_Retrieve<WithCallbackMethod_CardStatus<WithCallbackMethod_LEDBlinkGreen<WithCallbackMethod_LEDBlinkOrange<WithCallbackMethod_LEDBlinkRed<WithCallbackMethod_LEDOFF<WithCallbackMethod_ReadData<WithCallbackMethod_WaitInputReadCard<WithCallbackMethod_RejectCardOrMoveBin<Service > > > > > > > > > > > > > > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_GetDataKartu : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_GetDataKartu() {
+      ::grpc::Service::MarkMethodCallback(17,
+          new ::grpc::internal::CallbackUnaryHandler< ::card_reader_crt::GetDataKartuRequest, ::card_reader_crt::GetDataKartuResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response) { return this->GetDataKartu(context, request, response); }));}
+    void SetMessageAllocatorFor_GetDataKartu(
+        ::grpc::MessageAllocator< ::card_reader_crt::GetDataKartuRequest, ::card_reader_crt::GetDataKartuResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::card_reader_crt::GetDataKartuRequest, ::card_reader_crt::GetDataKartuResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_GetDataKartu() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDataKartu(::grpc::ServerContext* /*context*/, const ::card_reader_crt::GetDataKartuRequest* /*request*/, ::card_reader_crt::GetDataKartuResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* GetDataKartu(
+      ::grpc::CallbackServerContext* /*context*/, const ::card_reader_crt::GetDataKartuRequest* /*request*/, ::card_reader_crt::GetDataKartuResponse* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_IsOpen<WithCallbackMethod_Open<WithCallbackMethod_Close<WithCallbackMethod_Init<WithCallbackMethod_PermitMagCardOnly<WithCallbackMethod_ProhibitCardIn<WithCallbackMethod_Eject<WithCallbackMethod_Capture<WithCallbackMethod_Retrieve<WithCallbackMethod_CardStatus<WithCallbackMethod_LEDBlinkGreen<WithCallbackMethod_LEDBlinkOrange<WithCallbackMethod_LEDBlinkRed<WithCallbackMethod_LEDOFF<WithCallbackMethod_ReadData<WithCallbackMethod_WaitInputReadCard<WithCallbackMethod_RejectCardOrMoveBin<WithCallbackMethod_GetDataKartu<Service > > > > > > > > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_IsOpen : public BaseClass {
@@ -1564,6 +1635,23 @@ class CardReader final {
     }
     // disable synchronous version of this method
     ::grpc::Status RejectCardOrMoveBin(::grpc::ServerContext* /*context*/, const ::card_reader_crt::RejectCardOrMoveBinRequest* /*request*/, ::card_reader_crt::RejectCardOrMoveBinResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetDataKartu : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetDataKartu() {
+      ::grpc::Service::MarkMethodGeneric(17);
+    }
+    ~WithGenericMethod_GetDataKartu() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDataKartu(::grpc::ServerContext* /*context*/, const ::card_reader_crt::GetDataKartuRequest* /*request*/, ::card_reader_crt::GetDataKartuResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1906,6 +1994,26 @@ class CardReader final {
     }
     void RequestRejectCardOrMoveBin(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetDataKartu : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetDataKartu() {
+      ::grpc::Service::MarkMethodRaw(17);
+    }
+    ~WithRawMethod_GetDataKartu() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDataKartu(::grpc::ServerContext* /*context*/, const ::card_reader_crt::GetDataKartuRequest* /*request*/, ::card_reader_crt::GetDataKartuResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetDataKartu(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2280,6 +2388,28 @@ class CardReader final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* RejectCardOrMoveBin(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_GetDataKartu : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_GetDataKartu() {
+      ::grpc::Service::MarkMethodRawCallback(17,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetDataKartu(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_GetDataKartu() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetDataKartu(::grpc::ServerContext* /*context*/, const ::card_reader_crt::GetDataKartuRequest* /*request*/, ::card_reader_crt::GetDataKartuResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* GetDataKartu(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -2741,9 +2871,36 @@ class CardReader final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedRejectCardOrMoveBin(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::card_reader_crt::RejectCardOrMoveBinRequest,::card_reader_crt::RejectCardOrMoveBinResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_IsOpen<WithStreamedUnaryMethod_Open<WithStreamedUnaryMethod_Close<WithStreamedUnaryMethod_Init<WithStreamedUnaryMethod_PermitMagCardOnly<WithStreamedUnaryMethod_ProhibitCardIn<WithStreamedUnaryMethod_Eject<WithStreamedUnaryMethod_Capture<WithStreamedUnaryMethod_Retrieve<WithStreamedUnaryMethod_CardStatus<WithStreamedUnaryMethod_LEDBlinkGreen<WithStreamedUnaryMethod_LEDBlinkOrange<WithStreamedUnaryMethod_LEDBlinkRed<WithStreamedUnaryMethod_LEDOFF<WithStreamedUnaryMethod_ReadData<WithStreamedUnaryMethod_WaitInputReadCard<WithStreamedUnaryMethod_RejectCardOrMoveBin<Service > > > > > > > > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetDataKartu : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetDataKartu() {
+      ::grpc::Service::MarkMethodStreamed(17,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::card_reader_crt::GetDataKartuRequest, ::card_reader_crt::GetDataKartuResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::card_reader_crt::GetDataKartuRequest, ::card_reader_crt::GetDataKartuResponse>* streamer) {
+                       return this->StreamedGetDataKartu(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_GetDataKartu() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetDataKartu(::grpc::ServerContext* /*context*/, const ::card_reader_crt::GetDataKartuRequest* /*request*/, ::card_reader_crt::GetDataKartuResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetDataKartu(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::card_reader_crt::GetDataKartuRequest,::card_reader_crt::GetDataKartuResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_IsOpen<WithStreamedUnaryMethod_Open<WithStreamedUnaryMethod_Close<WithStreamedUnaryMethod_Init<WithStreamedUnaryMethod_PermitMagCardOnly<WithStreamedUnaryMethod_ProhibitCardIn<WithStreamedUnaryMethod_Eject<WithStreamedUnaryMethod_Capture<WithStreamedUnaryMethod_Retrieve<WithStreamedUnaryMethod_CardStatus<WithStreamedUnaryMethod_LEDBlinkGreen<WithStreamedUnaryMethod_LEDBlinkOrange<WithStreamedUnaryMethod_LEDBlinkRed<WithStreamedUnaryMethod_LEDOFF<WithStreamedUnaryMethod_ReadData<WithStreamedUnaryMethod_WaitInputReadCard<WithStreamedUnaryMethod_RejectCardOrMoveBin<WithStreamedUnaryMethod_GetDataKartu<Service > > > > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_IsOpen<WithStreamedUnaryMethod_Open<WithStreamedUnaryMethod_Close<WithStreamedUnaryMethod_Init<WithStreamedUnaryMethod_PermitMagCardOnly<WithStreamedUnaryMethod_ProhibitCardIn<WithStreamedUnaryMethod_Eject<WithStreamedUnaryMethod_Capture<WithStreamedUnaryMethod_Retrieve<WithStreamedUnaryMethod_CardStatus<WithStreamedUnaryMethod_LEDBlinkGreen<WithStreamedUnaryMethod_LEDBlinkOrange<WithStreamedUnaryMethod_LEDBlinkRed<WithStreamedUnaryMethod_LEDOFF<WithStreamedUnaryMethod_ReadData<WithStreamedUnaryMethod_WaitInputReadCard<WithStreamedUnaryMethod_RejectCardOrMoveBin<Service > > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_IsOpen<WithStreamedUnaryMethod_Open<WithStreamedUnaryMethod_Close<WithStreamedUnaryMethod_Init<WithStreamedUnaryMethod_PermitMagCardOnly<WithStreamedUnaryMethod_ProhibitCardIn<WithStreamedUnaryMethod_Eject<WithStreamedUnaryMethod_Capture<WithStreamedUnaryMethod_Retrieve<WithStreamedUnaryMethod_CardStatus<WithStreamedUnaryMethod_LEDBlinkGreen<WithStreamedUnaryMethod_LEDBlinkOrange<WithStreamedUnaryMethod_LEDBlinkRed<WithStreamedUnaryMethod_LEDOFF<WithStreamedUnaryMethod_ReadData<WithStreamedUnaryMethod_WaitInputReadCard<WithStreamedUnaryMethod_RejectCardOrMoveBin<WithStreamedUnaryMethod_GetDataKartu<Service > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace card_reader_crt

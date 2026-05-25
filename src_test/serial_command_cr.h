@@ -20,6 +20,20 @@
 
 class SerialLoader;
 
+struct JenisKartuResponse{
+    bool status = false;
+    std::string jenis = "";
+};
+
+struct DataKartuResponse{
+	std::string cardnumber = "";
+	std::string track2data = "";
+	std::string modecard = "";
+	std::string tag5F34 = "";
+	std::string iccdata = "";
+	bool status = false; 
+};
+
 // 9F1A	Terminal Country
 // 95	TVR (Terminal Status)
 // 5F2A	Currency Code
@@ -90,6 +104,7 @@ struct CardDetails {
 
     std::string track2Data = "Kosong";
     std::string posEntryMode ="Kosong";
+    std::string IccFull = "Kosong";
     bool isAcSuccess = false;
 };
 
@@ -120,7 +135,6 @@ public:
     int IdentifyCard();
     bool SelectCard();
 
-
     bool ProhibitCardIn();
     bool Eject();
     bool Capture();
@@ -144,6 +158,12 @@ public:
     int GetDECData(unsigned char *pData,std::string_view str);
     int OnCPURESETButton() ;
     void OnCPUAPDUSENDButton(std::string datass);
+    int JenisKartu(JenisKartuResponse *datass);
+	int GetDataKartu(int ammount_data,DataKartuResponse *datass);
+    
+    
+    //util
+    void ClearData();
     bool PaymentSystemEnvironment(unsigned char *ret);
     std::string GetResponse(int mode, unsigned char *SEt1, std::vector<uint8_t> *GenResp);
     std::string ReadRecord();
@@ -152,8 +172,7 @@ public:
     std::string CommandData(std::string data,unsigned char *SEt0,
                                           unsigned char *SEt1);
     std::string CariTag88(std::string datas);   
-    std::string ConvertBytetoString(std::vector<BYTE> data); 
-    // std::vector<unsigned char> hexToBytes(const std::string& hex);   
+    std::string ConvertBytetoString(std::vector<BYTE> data);    
     std::vector<unsigned char> hexToBytes(const std::string& hex);                       
     std::string bytesToHex(const std::vector<unsigned char>& bytes);
     bool findTagValue(const std::vector<unsigned char>& tlvData, size_t start, size_t end, unsigned int targetTag, std::vector<unsigned char>& outValue);
@@ -163,12 +182,12 @@ public:
     std::string toHexStr(unsigned char value);
     int CariAFL(std::string data);
     std::string GenerateAFL(std::string data);
-    std::string hexToAscii(const std::string& hex);
-    std::string hexToAsciiString(const std::string& hex);
+
     void parseEMVTLV(const std::vector<unsigned char>& data);
     void parsingGenerateAC(const std::string& hex);
     int GenerateACCommand(std::string formatCdol);
-    //util
+    std::string hexToAscii(const std::string& hex);
+    std::string hexToAsciiString(const std::string& hex);
     /**
      * @brief Melakukan parsing data mentah menjadi daftar objek TLV
      * @param data Pointer ke buffer data
@@ -189,6 +208,8 @@ private:
     std::string_view	m_APDUSENDSTRINGCMD;
     std::string_view	m_APDUBACKSTRING;
     static bool isConstructed(uint32_t tag);
-     CardDetails emv;
+    CardDetails emv;
+    int StatusKartu =0;
+    //DataKartuResponse DK_Buffer;
 };
 #endif

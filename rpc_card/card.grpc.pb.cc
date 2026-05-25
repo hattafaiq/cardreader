@@ -39,6 +39,7 @@ static const char* CardReader_method_names[] = {
   "/card_reader_crt.CardReader/ReadData",
   "/card_reader_crt.CardReader/WaitInputReadCard",
   "/card_reader_crt.CardReader/RejectCardOrMoveBin",
+  "/card_reader_crt.CardReader/GetDataKartu",
 };
 
 std::unique_ptr< CardReader::Stub> CardReader::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -65,6 +66,7 @@ CardReader::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_ReadData_(CardReader_method_names[14], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_WaitInputReadCard_(CardReader_method_names[15], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_RejectCardOrMoveBin_(CardReader_method_names[16], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetDataKartu_(CardReader_method_names[17], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status CardReader::Stub::IsOpen(::grpc::ClientContext* context, const ::card_reader_crt::IsOpenRequest& request, ::card_reader_crt::IsOpenResp* response) {
@@ -458,6 +460,29 @@ void CardReader::Stub::async::RejectCardOrMoveBin(::grpc::ClientContext* context
   return result;
 }
 
+::grpc::Status CardReader::Stub::GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::card_reader_crt::GetDataKartuResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::card_reader_crt::GetDataKartuRequest, ::card_reader_crt::GetDataKartuResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetDataKartu_, context, request, response);
+}
+
+void CardReader::Stub::async::GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::card_reader_crt::GetDataKartuRequest, ::card_reader_crt::GetDataKartuResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDataKartu_, context, request, response, std::move(f));
+}
+
+void CardReader::Stub::async::GetDataKartu(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDataKartu_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::card_reader_crt::GetDataKartuResponse>* CardReader::Stub::PrepareAsyncGetDataKartuRaw(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::card_reader_crt::GetDataKartuResponse, ::card_reader_crt::GetDataKartuRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetDataKartu_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::card_reader_crt::GetDataKartuResponse>* CardReader::Stub::AsyncGetDataKartuRaw(::grpc::ClientContext* context, const ::card_reader_crt::GetDataKartuRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetDataKartuRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 CardReader::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       CardReader_method_names[0],
@@ -629,6 +654,16 @@ CardReader::Service::Service() {
              ::card_reader_crt::RejectCardOrMoveBinResponse* resp) {
                return service->RejectCardOrMoveBin(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      CardReader_method_names[17],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< CardReader::Service, ::card_reader_crt::GetDataKartuRequest, ::card_reader_crt::GetDataKartuResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CardReader::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::card_reader_crt::GetDataKartuRequest* req,
+             ::card_reader_crt::GetDataKartuResponse* resp) {
+               return service->GetDataKartu(ctx, req, resp);
+             }, this)));
 }
 
 CardReader::Service::~Service() {
@@ -747,6 +782,13 @@ CardReader::Service::~Service() {
 }
 
 ::grpc::Status CardReader::Service::RejectCardOrMoveBin(::grpc::ServerContext* context, const ::card_reader_crt::RejectCardOrMoveBinRequest* request, ::card_reader_crt::RejectCardOrMoveBinResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status CardReader::Service::GetDataKartu(::grpc::ServerContext* context, const ::card_reader_crt::GetDataKartuRequest* request, ::card_reader_crt::GetDataKartuResponse* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -30,6 +30,20 @@ Server::~Server() { m_handle->Close(); }
   return ::grpc::Status::OK;
 }
 
+::grpc::Status Server::GetDataKartu(::grpc::ServerContext* context,
+                            const ::card_reader_crt::GetDataKartuRequest* request,
+                            ::card_reader_crt::GetDataKartuResponse* response) {
+  bool status = false;
+   status = m_handle->GetDataKartu(request->ammount(), &dat);
+   response->set_cardnumber(dat.cardnumber); //dat.cardnumber
+   response->set_iccdata(dat.iccdata);
+   response->set_modecard(dat.modecard);
+   response->set_tag5f34(dat.tag5F34);
+   response->set_track2data(dat.track2data);
+   response->set_status(dat.status);
+  return ::grpc::Status::OK;
+}
+
 ::grpc::Status Server::Close(::grpc::ServerContext* context,
                              const ::card_reader_crt::CloseRequest* request,
                              ::card_reader_crt::CloseResp* response) {
@@ -42,6 +56,13 @@ Server::~Server() { m_handle->Close(); }
 ::grpc::Status Server::Init(::grpc::ServerContext* context,
                             const ::card_reader_crt::InitRequest* request,
                             ::card_reader_crt::InitResponse* response) {
+  dat.cardnumber = "";
+	dat.track2data = "";
+	dat.modecard = "";
+	dat.tag5F34 = "";
+	dat.iccdata = "";
+	dat.status = false;
+   
   if (m_handle->IsOpen()) {
     bool resp = m_handle->Init(request->ejectfrontorrear());
     response->set_status(resp);

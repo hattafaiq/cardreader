@@ -435,6 +435,32 @@ std::string generateLengEMVTLV(const std::string& tag, std::string valueHex) {
     return fullTLV;
 }
 
+// Fungsi untuk menghitung panjang dan membuat format TLV
+std::string generateLengEMVTLVEND(const std::string& tag, std::string valueHex) {
+    // Hapus spasi jika ada input yang mengandung spasi
+    valueHex.erase(std::remove(valueHex.begin(), valueHex.end(), ' '), valueHex.end());
+
+    // Hitung jumlah byte (2 karakter hex = 1 byte)
+    size_t byteLength = valueHex.length() / 2;
+
+    // Konversi panjang byte ke format hex string 2 digit (Uppercase)
+    std::stringstream ss;
+    ss << std::setfill('0') << std::setw(2) << std::hex << std::uppercase << byteLength;
+    std::string lengthHex = ss.str();
+
+    // Gabungkan menjadi format TLV
+    std::string fullTLV = tag + lengthHex + valueHex;
+
+    // // Tampilkan hasil analisis di konsol
+    // std::cout << "--- Hasil Analisis Tag " << tag << " ---\n";
+    // std::cout << "Data Asli (Value) : " << valueHex << "\n";
+    // std::cout << "Panjang (Decimal) : " << byteLength << " byte\n";
+    // std::cout << "Panjang (Hex)     : " << lengthHex << "\n";
+    // std::cout << "Format TLV Utuh   : " << fullTLV << "\n\n";
+
+    return fullTLV;
+}
+
 int CommandCardCRT::GenerateACCommand(std::string formatCdol){
   // 1. Gudang Data Terminal
     std::map<std::string, std::string> terminalData;
@@ -458,6 +484,11 @@ int CommandCardCRT::GenerateACCommand(std::string formatCdol){
     std::string ins = "AE";
     std::string p1  = "80"; // Meminta ARQC
     std::string p2  = "00";
+
+    // P1 = 0x80 (ARQC): Meminta kriptogram untuk transaksi Online (Paling umum digunakan terminal Visa untuk meminta otentikasi ke bank penerbit).
+    // P1 = 0x40 (TC): Meminta kriptogram untuk persetujuan transaksi Offline.
+    // P1 = 0x00 (AAC): Menolak transaksi secara Offline.
+    // P1 = 0x90 (ARQC + CDA) atau P1 = 0x50 (TC + CDA): Jika terminal mendukung Combined Data Authentication (CDA), bit ke-5 pada P1 diaktifkan (OR 0x10). Kartu Visa modern sering kali meminta kombinasi ini untuk aspek keamanan ekstra dari pemalsuan kartu fisik.
     
     // Hitung Lc (Panjang payload data dalam byte = jumlah karakter / 2)
     int lcValue = cdolPayloadData.length() / 2;
@@ -536,7 +567,32 @@ int CommandCardCRT::GenerateACCommand(std::string formatCdol){
           std::cout << "ApplicationVersionNumber:"<< generateLengEMVTLV("9F09",emv.ApplicationVersionNumber)<</*emv.ApplicationVersionNumber << */std::endl;
           std::cout << "TransactionSequenceCounter:"<< generateLengEMVTLV("9F41",emv.TransactionSequenceCounter)<</*emv.TransactionSequenceCounter <<*/ std::endl;
           std::cout << "==========================================" << std::endl;
+          emv.IccFull += generateLengEMVTLV("9F26",emv.arqc);
+          emv.IccFull += generateLengEMVTLV("9F27",emv.cid);
           
+          if(emv.iad != "Tidak Ditemukan") {
+            emv.IccFull += generateLengEMVTLV("9F10",emv.iad);
+          }
+          
+          emv.IccFull += generateLengEMVTLVEND("9F36",emv.atc);
+          emv.IccFull += generateLengEMVTLVEND("9F37",emv.unpredictableNo);
+          emv.IccFull += generateLengEMVTLVEND("95",emv.TerminalVerificationResults);
+          emv.IccFull += generateLengEMVTLVEND("9A",emv.transactionDate);
+          emv.IccFull += generateLengEMVTLVEND("9C",emv.transactionType);
+          emv.IccFull += generateLengEMVTLVEND("9F02",emv.ammountDeposit);
+          emv.IccFull += generateLengEMVTLVEND("9F03",emv.ammountOther);
+          emv.IccFull += generateLengEMVTLVEND("5A",emv.pan);
+          emv.IccFull += generateLengEMVTLVEND("5F2A",emv.currencyCode);
+          emv.IccFull += generateLengEMVTLVEND("82",emv.ApplicationInterchangeProfile);
+          emv.IccFull += generateLengEMVTLVEND("9F1A",emv.terminalCountry);
+          emv.IccFull += generateLengEMVTLVEND("5F34",emv.panSequenceNumber);
+          emv.IccFull += generateLengEMVTLVEND("5F33",emv.TerminalCapabilities);
+          emv.IccFull += generateLengEMVTLVEND("9F34",emv.CardholderVerificationMethod);
+          emv.IccFull += generateLengEMVTLVEND("9F35",emv.TerminalType);
+          emv.IccFull += generateLengEMVTLVEND("9F1E",emv.InterfaceDevice);
+          emv.IccFull += generateLengEMVTLVEND("84",emv.DedicatedFile);
+          emv.IccFull += generateLengEMVTLVEND("9F09",emv.ApplicationVersionNumber);
+          emv.IccFull += generateLengEMVTLVEND("9F41",emv.TransactionSequenceCounter);
       } else {
           std::cerr << "[LEWAT] Record merespon error / kosong. SW: " << std::hex << sw << std::dec << std::endl;
       }
@@ -1423,21 +1479,16 @@ int CommandCardCRT::OnCPURESETButton()
             ss << std::setw(2) << static_cast<int>(ReData[n]);
         }
         
-        // Output akhir berupa std::string
         std::string resultHex = ss.str();
-			// UpdateData(false);
-			//MessageBox("Send APDU Successed");
       std::cout << "CPU Card Activate Successed {Cold Reset}: " << resultHex << std::endl;
 
 			if (ReData[0]==48)
 			{
         std::cout << "CPU Card(T=0) Activate Successed" << std::endl;
-				//MessageBox("CPU Card(T=0) Activate Successed");
 			}
 			if (ReData[0]==49)
 			{
         std::cout << "CPU Card(T=1) Activate Successed" << std::endl;
-				//MessageBox("CPU Card(T=1) Activate Successed");
 			}
       return SUCSESS_RESP;
 		}
@@ -2303,12 +2354,13 @@ std::string CommandCardCRT::MulaiGPO(std::string data){
             // Tembak ke parser rekursif untuk diekstrak secara otomatis
             parseEMVTLV(responseBytes);
         
-        CariAFL(gpoResponse);
+       int hasilafl = CariAFL(gpoResponse); //belum ditambahkan logic lagi
         
         // Langkah selanjutnya: Memparsing 'gpoResponse' untuk mengambil AFL (Application File Locator)
     } else {
         std::cerr << "[ERROR] GPO Ditolak oleh kartu dengan SW: " 
                   << std::hex << std::uppercase << statusWord << std::dec << std::endl;
+                 // return "GPO ditolak";
     }
 }
 std::string CommandCardCRT::ConvertBytetoString(std::vector<BYTE> data){
@@ -2827,4 +2879,198 @@ bool CommandCardCRT::findTagValue(const std::vector<unsigned char>& tlvData, siz
 }
 
 //buat parsing Select PSE (Payment System Environment) untuk dapetid AID
+void CommandCardCRT::ClearData(){
+    emv.expiryDate = "Tidak Ditemukan";
+    emv.cardholderName = "Tidak Ditemukan";
+    emv.serviceCode = "Tidak Ditemukan";
+    emv.discretionaryData = "Tidak Ditemukan";
+    emv.isTrack2Found = false;
+ 
+    emv.tvr = "0000000000";// aku masih pusing kalo membatasi TVR //Tag 95
+    emv.cardholderverification = "Tidak Ditemukan";
+    emv.countrycode = "Tidak Ditemukan"; //Tag 5F1A sama dengan curency code
+    emv.IACDefault = "Tidak Ditemukan";
+    emv.IACDenial = "Tidak Ditemukan";
+    emv.IACOnline = "Tidak Ditemukan";
+    emv.cdol1Raw = "Tidak Ditemukan";    // Aturan pengisian 29 byte transaksi
+    emv.cdol2Raw = "Tidak Ditemukan";    // Aturan pengisian 29 byte transaksi
+    emv.isPanFound = false;
+
+    // Data Kriptogram (Dari GENERATE AC)
+    emv.arqc = "Tidak Ditemukan";        // Tag 9F26
+    emv.cid = "Tidak Ditemukan";         // Tag 9F27
+    emv.iad = "Tidak Ditemukan";        // Tag 9F10
+    emv.atc = "Tidak Ditemukan";         // Tag 9F36
+    emv.unpredictableNo = "Tidak Ditemukan";//generate dari kita 9F37
+    emv.TerminalVerificationResults = "8080048000"; //Tag 95 hasil verivikasi //hardcode karena belum tau rumus dan kesepakatanya
+    emv.transactionDate = "Tidak Ditemukan"; // tag 9A (YYMMDD)
+    emv.transactionType = "00"; //00 asumsi purcase butuh info dari mandiri mau transaksi tipenya apa //tag 9C //hardcode karena belum tau rumus dan kesepakatanya
+    emv.ammountDeposit = "000000010000"; //Tag 9F02
+    emv.ammountOther = "000000000000"; //Tag 9F03
+    emv.pan = "Tidak Ditemukan"; //5A
+    emv.currencyCode = "Tidak Ditemukan"; //tag 5F2A
+    emv.ApplicationInterchangeProfile = "Tidak Ditemukan"; //Tag 82
+    emv.terminalCountry = "Tidak Ditemukan";//Tag 9F1A
+    emv.panSequenceNumber = "xxx";        // Tag 5F34
+    emv.TerminalCapabilities = "604020"; //9F33 //hardcode karena belum tau rumus dan kesepakatanya
+    emv.CardholderVerificationMethod = "020000"; //9F34 //hardcode karena belum tau rumus dan kesepakatanya
+    emv.TerminalType = "14"; //9F35 //hardcode karena belum tau rumus dan kesepakatanya
+    emv.InterfaceDevice = "3030303030303030"; 
+    emv.DedicatedFile = "kosong";
+    emv.ApplicationVersionNumber = "01"; //hardcode karena belum tau rumus dan kesepakatanya
+    emv.TransactionSequenceCounter = "0";
+
+    emv.track2Data = "Kosong";
+    emv.posEntryMode ="Kosong";
+    emv.isAcSuccess = false;
+    StatusKartu =0;
+}
+
+int CommandCardCRT::JenisKartu(JenisKartuResponse *datass){
+
+ClearData();//normalisasi data
+
+int resp = IdentifyCard();
+if(resp == SUCSESS_RESP){
+
+  datass->jenis = "051";
+  datass->status = SUCSESS_RESP;
+  StatusKartu =1;
+}
+else if(resp == FAIL_RESP ){
+
+  //syaratnya kalo data track 2 sudah dapat
+  datass->jenis = "021";
+  datass->status = resp;
+  StatusKartu =2;
+}
+else{//card reader gagal
+  datass->jenis = "";
+  datass->status = resp;
+  StatusKartu =-1;
+}
+std::this_thread::sleep_for(std::chrono::seconds(1));
+
+//ini cukup nanti dilanjut sama high level buat ambil datanya;
+
+  return resp;
+}
+
+std::string intToDecimal12Char(int value) {
+    std::stringstream stream;
+    stream << std::dec          // Format Desimal biasa
+           << std::setw(12)     // Lebar 12 karakter
+           << std::setfill('0') // Padding nol di depan
+           << value;
+    return stream.str();
+}
+
+
+int CommandCardCRT::GetDataKartu(int ammount_data, DataKartuResponse *datass){
+
+  ClearData();//normalisasi data
+
+  emv.ammountDeposit = intToDecimal12Char(ammount_data);
+  int resp = IdentifyCard();
+
+  std::this_thread::sleep_for(std::chrono::seconds(2));
+
+  if(resp == SUCSESS_RESP){
+    std::string respbuf="";
+    unsigned char SEt0;
+    unsigned char SEt1;
+    //cek kartu apakah gpn
+    respbuf = CommandData(COMSelectPSE,&SEt0,&SEt1);
+    std::printf("Res SW CommandData: %02X %02X\n", SEt0, SEt1);
+
+    if(SEt0 == 0x61){
+       std::cout << "data respon panjang lagi!";
+
+       BYTE extraBytesLength = SEt1;
+       std::vector<BYTE> currentCmd = { 0x00, 0xC0, 0x00, 0x00, extraBytesLength };
+       std::string str = ConvertBytetoString(currentCmd);
+       // std::stringstream ss
+
+        // std::cout << str << std::endl; // Output: 00C00000
+       respbuf = CommandData(str,&SEt0,&SEt1);
+
+       //tambahkan logika sukses dan fail
+
+       respbuf = CariTag88(respbuf);//select AID 
+
+       std::vector<unsigned char> tlvData = hexToBytes(respbuf);
+       std::vector<unsigned char> aidValue;
+
+        // Cari Tag 4F (AID) secara otomatis
+        if (findTagValue(tlvData, 0, tlvData.size(), 0x4F, aidValue)) {
+            std::string aidHex = bytesToHex(aidValue);
+            std::cout << "[SUKSES] AID Ditemukan: " << aidHex << std::endl;
+
+            // --- GENERATE APDU SELECT AID ---
+            unsigned char aidLen = aidValue.size();
+            std::stringstream ss;
+            ss << "00A40400" << std::hex << std::uppercase << std::setfill('0') << std::setw(2) << (int)aidLen << aidHex;
+            
+            std::string nextApduCmd = ss.str();
+            std::cout << "Kirim APDU Berikutnya (SELECT AID): " << nextApduCmd << std::endl;
+            respbuf = CommandData(nextApduCmd,&SEt0,&SEt1);
+             if(SEt0 == 0x61){
+                std::cout << "data respon panjang lagi!";
+
+                BYTE extraBytesLength = SEt1;
+                std::vector<BYTE> currentCmd = { 0x00, 0xC0, 0x00, 0x00, extraBytesLength };
+                std::string str = ConvertBytetoString(currentCmd);
+                respbuf = CommandData(str,&SEt0,&SEt1);
+                 if (respbuf.length() >= 4 && respbuf.substr(respbuf.length() - 4) == "9000") {
+                      respbuf = respbuf.substr(0, respbuf.length() - 4);
+                  }
+
+                  std::vector<unsigned char> responseBytes = hexToBytes(respbuf);
+
+                  // Tembak ke parser rekursif untuk diekstrak secara otomatis
+                  parseEMVTLV(responseBytes);
+
+                MulaiGPO(respbuf);
+             }
+
+             else if(SEt0 == 0x90){
+                std::cout<<" CariTag88 resp 90 -->>>> harusnya ini gak ada soalnya commandnya di belakang nggak ada tambahan 00";
+            }
+
+
+            // Tembak nextApduCmd ini menggunakan fungsi CommandData(nextApduCmd, &sw1, &sw2) Anda!
+        } else {
+            std::cerr << "[ERROR] Tag 4F (AID) tidak ditemukan dalam record." << std::endl;
+            return FAIL_RESP;
+        }
+    }
+    else if(SEt0 == 0x90){
+        std::cout<<"COMSelectPSE resp 90";//harusnya nggak masuk sini soalnya command nya untuk 0x61 ya
+    }
+      // tambahkan respon gagal
+    datass->cardnumber = emv.pan;
+    datass->track2data = emv.track2Data;
+    datass->modecard = "051";
+    datass->tag5F34 = emv.panSequenceNumber;
+    datass->iccdata = emv.IccFull;
+
+    return SUCSESS_RESP;
+  }
+  else if(resp == FAIL_RESP){
+
+    datass->cardnumber = emv.pan;
+    datass->track2data = emv.track2Data;
+    datass->modecard = "021";
+    datass->tag5F34 = "";
+    datass->iccdata = "";
+    return SUCSESS_RESP;
+  }
+  else{
+
+    return FAIL_RESP;
+  }
+
+  return SUCSESS_RESP;
+
+}
 

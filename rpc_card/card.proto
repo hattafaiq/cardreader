@@ -21,7 +21,24 @@ service CardReader {
 
     rpc WaitInputReadCard(WaitInputReadCardRequest) returns (WaitInputReadCardResponse) {}
     rpc RejectCardOrMoveBin(RejectCardOrMoveBinRequest) returns (RejectCardOrMoveBinResponse) {}
+
+	rpc GetDataKartu(GetDataKartuRequest) returns (GetDataKartuResponse){}
 }
+
+message GetDataKartuResponse{
+	string cardnumber = 1;
+	string track2data = 2;
+	string modecard = 3;
+	string tag5F34 = 4 ;
+	string iccdata = 5;
+	bool status = 6; 
+}
+
+message GetDataKartuRequest{
+	int32 ammount = 1;
+	string formaticcdata = 2;
+}
+
 
 message EjectResponse{
 	bool status = 1; 
